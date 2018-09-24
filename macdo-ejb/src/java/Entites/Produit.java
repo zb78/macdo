@@ -27,29 +27,29 @@ public class Produit implements Serializable {
     private int statut;
     private String description;
     private String image;
-    
+
     //Associations
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Tva tva;
-    
+
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Type type;
-    
+
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Statut statuts;
-    
-    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Collection<Propriete> proprietes;
-    
-    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Collection<Element> elements;
-    
-    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Collection<SupplementPayant> supplementpaynts;
-    
-    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Collection<OptionGratuite> optiongratuites;
-    
+
     //Constructeurs
     public Produit() {
     }
@@ -76,7 +76,7 @@ public class Produit implements Serializable {
         this.supplementpaynts = supplementpaynts;
         this.optiongratuites = optiongratuites;
     }
-    
+
     //Getters
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -163,7 +163,7 @@ public class Produit implements Serializable {
     public void setOptiongratuites(Collection<OptionGratuite> optiongratuites) {
         this.optiongratuites = optiongratuites;
     }
-    
+
     //Autres
     @Override
     public String toString() {

@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-
 @Entity
 public class Type implements Serializable {
 
@@ -17,20 +16,19 @@ public class Type implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     //Atributs
     @Column(nullable = false)
     private String nom;
-    
+
     //Associations
     @OneToMany(mappedBy = "type")
     private Collection<Produit> produit;
-    
+
     @OneToMany(mappedBy = "type")
     private Collection<Menu> menus;
-   
-    //Constructeurs
 
+    //Constructeurs
     public Type() {
     }
 
@@ -43,15 +41,14 @@ public class Type implements Serializable {
         this.produit = produit;
         this.menus = menus;
     }
-    
-    
+
     //Getters
     public String getNom() {
         return nom;
     }
 
     //Setters
-    public void setNom(String nom) {    
+    public void setNom(String nom) {
         this.nom = nom;
     }
 
@@ -79,11 +76,11 @@ public class Type implements Serializable {
     public void setMenus(Collection<Menu> menus) {
         this.menus = menus;
     }
-    
+
     //Autres
     @Override
     public String toString() {
         return "Entites.Type[ id=" + id + " ]";
     }
-    
+
 }

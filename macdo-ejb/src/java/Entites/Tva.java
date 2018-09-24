@@ -15,17 +15,17 @@ public class Tva implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     //Attributs
     private float taux;
-        
+
     //Associations
     @OneToMany(mappedBy = "tva")
     private Collection<Produit> produit;
-    
+
     @OneToMany(mappedBy = "tva")
     private Collection<Menu> menus;
-    
+
     //Constructeurs
     public Tva() {
     }
@@ -33,18 +33,23 @@ public class Tva implements Serializable {
     public Tva(float taux) {
         this.taux = taux;
     }
-    
+
+    public Tva(float taux, Collection<Produit> produit, Collection<Menu> menus) {
+        this.taux = taux;
+        this.produit = produit;
+        this.menus = menus;
+    }
+
     //Getters
     public float getTaux() {
         return taux;
     }
-    
 
     //Setters
     public void setTaux(float taux) {
         this.taux = taux;
     }
-    
+
     //Autres Getters-Setters
     public Long getId() {
         return id;
@@ -69,12 +74,11 @@ public class Tva implements Serializable {
     public void setMenus(Collection<Menu> menus) {
         this.menus = menus;
     }
-    
+
     //Autres
-    
     @Override
     public String toString() {
         return "Entites.Tva[ id=" + id + " ]";
     }
-    
+
 }

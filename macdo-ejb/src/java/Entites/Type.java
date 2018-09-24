@@ -25,20 +25,37 @@ public class Type implements Serializable {
     //Associations
     @OneToMany(mappedBy = "type")
     private Collection<Produit> produit;
-   
     
+    @OneToMany(mappedBy = "type")
+    private Collection<Menu> menus;
+   
     //Constructeurs
 
     public Type() {
     }
 
-   
+    public Type(String nom) {
+        this.nom = nom;
+    }
+
+    public Type(String nom, Collection<Produit> produit, Collection<Menu> menus) {
+        this.nom = nom;
+        this.produit = produit;
+        this.menus = menus;
+    }
+    
+    
     //Getters
-    
+    public String getNom() {
+        return nom;
+    }
+
     //Setters
-    
-    
-    //
+    public void setNom(String nom) {    
+        this.nom = nom;
+    }
+
+    //Autres Getters-Setters
     public Long getId() {
         return id;
     }
@@ -47,6 +64,22 @@ public class Type implements Serializable {
         this.id = id;
     }
 
+    public Collection<Produit> getProduit() {
+        return produit;
+    }
+
+    public void setProduit(Collection<Produit> produit) {
+        this.produit = produit;
+    }
+
+    public Collection<Menu> getMenus() {
+        return menus;
+    }
+
+    public void setMenus(Collection<Menu> menus) {
+        this.menus = menus;
+    }
+    
     //Autres
     @Override
     public String toString() {

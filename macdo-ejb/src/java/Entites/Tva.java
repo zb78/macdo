@@ -23,6 +23,9 @@ public class Tva implements Serializable {
     @OneToMany(mappedBy = "tva")
     private Collection<Produit> produit;
     
+    @OneToMany(mappedBy = "tva")
+    private Collection<Menu> menus;
+    
     //Constructeurs
     public Tva() {
     }
@@ -31,7 +34,6 @@ public class Tva implements Serializable {
         this.taux = taux;
     }
     
-       
     //Getters
     public float getTaux() {
         return taux;
@@ -39,14 +41,11 @@ public class Tva implements Serializable {
     
 
     //Setters
-
     public void setTaux(float taux) {
         this.taux = taux;
     }
     
-    
-    
-    //
+    //Autres Getters-Setters
     public Long getId() {
         return id;
     }
@@ -55,6 +54,22 @@ public class Tva implements Serializable {
         this.id = id;
     }
 
+    public Collection<Produit> getProduit() {
+        return produit;
+    }
+
+    public void setProduit(Collection<Produit> produit) {
+        this.produit = produit;
+    }
+
+    public Collection<Menu> getMenus() {
+        return menus;
+    }
+
+    public void setMenus(Collection<Menu> menus) {
+        this.menus = menus;
+    }
+    
     //Autres
     
     @Override

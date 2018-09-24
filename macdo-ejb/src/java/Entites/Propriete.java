@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
-
 @Entity
 public class Propriete implements Serializable {
 
@@ -17,18 +16,17 @@ public class Propriete implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     //Attributs
     @Column(nullable = false)
     private String nom;
     private String valeur;
-    
+
     //Associations
     @ManyToMany(mappedBy = "proprietes")
     private Collection<Produit> produits;
-    
-    //Constructeurs
 
+    //Constructeurs
     public Propriete() {
     }
 
@@ -42,7 +40,7 @@ public class Propriete implements Serializable {
         this.valeur = valeur;
         this.produits = produits;
     }
-    
+
     //Getters
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -55,7 +53,7 @@ public class Propriete implements Serializable {
     public String getValeur() {
         return valeur;
     }
-    
+
     //Setters
     public void setNom(String nom) {
         this.nom = nom;
@@ -64,8 +62,7 @@ public class Propriete implements Serializable {
     public void setValeur(String valeur) {
         this.valeur = valeur;
     }
-    
-    
+
     //Autres Getters-Setters
     public Long getId() {
         return id;
@@ -82,11 +79,11 @@ public class Propriete implements Serializable {
     public void setProduits(Collection<Produit> produits) {
         this.produits = produits;
     }
-     
+
     //Autres
     @Override
     public String toString() {
         return "Entites.Propriete[ id=" + id + " ]";
     }
-    
+
 }

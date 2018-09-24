@@ -14,6 +14,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -40,9 +41,13 @@ public class Menu implements Serializable{
     
     @OneToMany(mappedBy = "menu")
     private Collection<LigneDeCommande> ligneDeCommandes;
+    
+    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    private Collection<OptionGratuite> optionGratuites;
 
     public Menu() {
         ligneDeCommandes = new ArrayList<>();
+        optionGratuites = new ArrayList<>();
     }
 
     public Menu(String nom, Float prix, String description, String image) {
@@ -101,6 +106,14 @@ public class Menu implements Serializable{
 
     public void setLigneDeCommandes(Collection<LigneDeCommande> ligneDeCommandes) {
         this.ligneDeCommandes = ligneDeCommandes;
+    }
+
+    public Collection<OptionGratuite> getOptionGratuites() {
+        return optionGratuites;
+    }
+
+    public void setOptionGratuites(Collection<OptionGratuite> optionGratuites) {
+        this.optionGratuites = optionGratuites;
     }
     
     

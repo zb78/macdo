@@ -25,6 +25,9 @@ public class SupplementPayant implements Serializable {
     @ManyToMany(mappedBy = "SupplementPayants")
     private Collection<LigneDeCommande> LigneDeCommandes;
     
+//    @ManyToMany(mappedBy = "SupplementPayants")
+//    private Collection<Produit> Produits;
+//    
     
 
     public SupplementPayant() {
@@ -56,6 +59,15 @@ public class SupplementPayant implements Serializable {
         this.prix = prix;
         this.LigneDeCommandes = LigneDeCommandes;
     }
+
+//    public SupplementPayant(String nom, String description, Float prix, Collection<LigneDeCommande> LigneDeCommandes, Collection<Produit> Produits) {
+//        this.nom = nom;
+//        this.description = description;
+//        this.prix = prix;
+//        this.LigneDeCommandes = LigneDeCommandes;
+//        this.Produits = Produits;
+//    }
+//    
     
     
     
@@ -102,6 +114,17 @@ public class SupplementPayant implements Serializable {
     public void setLigneDeCommandes(Collection<LigneDeCommande> LigneDeCommandes) {
         this.LigneDeCommandes = LigneDeCommandes;
     }
+
+//    public Collection<Produit> getProduits() {
+//        return Produits;
+//    }
+//
+//    public void setProduits(Collection<Produit> Produits) {
+//        this.Produits = Produits;
+//    }
+    
+    
+    
     
     
     

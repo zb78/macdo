@@ -1,10 +1,12 @@
 package Entites;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Element implements Serializable {
@@ -15,6 +17,14 @@ public class Element implements Serializable {
     private Long id;
     
     private String nom;
+    
+    @ManyToMany(mappedBy = "Elements")
+    private Collection<LigneDeCommande> LigneDeCommandes;
+    
+//    @ManyToMany(mappedBy = "Elements")
+//    private Collection<Produit> Produits;
+    
+    
 
     public Element() {
     }
@@ -22,6 +32,23 @@ public class Element implements Serializable {
     public Element(String nom) {
         this.nom = nom;
     }
+
+    public Element(String nom, Collection<LigneDeCommande> LigneDeCommandes) {
+        this.nom = nom;
+        this.LigneDeCommandes = LigneDeCommandes;
+    }
+
+//    public Element(String nom, Collection<LigneDeCommande> LigneDeCommandes, Collection<Produit> Produits) {
+//        this.nom = nom;
+//        this.LigneDeCommandes = LigneDeCommandes;
+//        this.Produits = Produits;
+//    }
+    
+    
+    
+    
+    
+    
     
     public String getNom() {
         return nom;
@@ -38,6 +65,27 @@ public class Element implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public Collection<LigneDeCommande> getLigneDeCommandes() {
+        return LigneDeCommandes;
+    }
+
+    public void setLigneDeCommandes(Collection<LigneDeCommande> LigneDeCommandes) {
+        this.LigneDeCommandes = LigneDeCommandes;
+    }
+
+//    public Collection<Produit> getProduits() {
+//        return Produits;
+//    }
+//
+//    public void setProduits(Collection<Produit> Produits) {
+//        this.Produits = Produits;
+//    }
+//    
+    
+    
+    
+    
     
     
     @Override

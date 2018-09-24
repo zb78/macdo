@@ -1,10 +1,12 @@
 package Entites;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class SupplementPayant implements Serializable {
@@ -20,6 +22,12 @@ public class SupplementPayant implements Serializable {
     
     private Float prix;
     
+    @ManyToMany(mappedBy = "SupplementPayants")
+    private Collection<LigneDeCommande> LigneDeCommandes;
+    
+//    @ManyToMany(mappedBy = "SupplementPayants")
+//    private Collection<Produit> Produits;
+//    
     
 
     public SupplementPayant() {
@@ -44,6 +52,23 @@ public class SupplementPayant implements Serializable {
         this.description = description;
         this.prix = prix;
     }
+
+    public SupplementPayant(String nom, String description, Float prix, Collection<LigneDeCommande> LigneDeCommandes) {
+        this.nom = nom;
+        this.description = description;
+        this.prix = prix;
+        this.LigneDeCommandes = LigneDeCommandes;
+    }
+
+//    public SupplementPayant(String nom, String description, Float prix, Collection<LigneDeCommande> LigneDeCommandes, Collection<Produit> Produits) {
+//        this.nom = nom;
+//        this.description = description;
+//        this.prix = prix;
+//        this.LigneDeCommandes = LigneDeCommandes;
+//        this.Produits = Produits;
+//    }
+//    
+    
     
     
     
@@ -81,6 +106,26 @@ public class SupplementPayant implements Serializable {
     public void setPrix(Float prix) {
         this.prix = prix;
     }
+
+    public Collection<LigneDeCommande> getLigneDeCommandes() {
+        return LigneDeCommandes;
+    }
+
+    public void setLigneDeCommandes(Collection<LigneDeCommande> LigneDeCommandes) {
+        this.LigneDeCommandes = LigneDeCommandes;
+    }
+
+//    public Collection<Produit> getProduits() {
+//        return Produits;
+//    }
+//
+//    public void setProduits(Collection<Produit> Produits) {
+//        this.Produits = Produits;
+//    }
+    
+    
+    
+    
     
     
 

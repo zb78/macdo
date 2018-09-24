@@ -6,6 +6,7 @@
 package Entites;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
 import javax.persistence.CascadeType;
@@ -13,6 +14,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -41,18 +43,33 @@ public class LigneDeCommande implements Serializable {
     private Collection<LigneDeCommande> sousLignesDeCommandes;
     
     @OneToMany(mappedBy = "sousLignesDeCommandes")
-    private LigneDeCommande ligneDeCommande;
+    private LigneDeCommande ligneParent;
+    
+    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    private Collection<OptionGratuite> optionGratuites;
+    
+    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    private Collection<SupplementPayant> supplementPayants;
+    
+    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    private Collection<Element> elements;
     
     public LigneDeCommande() {
+        sousLignesDeCommandes = new ArrayList<>();
+        optionGratuites = new ArrayList<>();
+        supplementPayants = new ArrayList<>();
+        elements = new ArrayList<>();
     }
 
     public LigneDeCommande(Integer quantite, Float prix, Float tvaTaux) {
+        this();
         this.quantite = quantite;
         this.prix = prix;
         this.tvaTaux = tvaTaux;
     }
 
     public LigneDeCommande(Integer quantite, Float prix, Float tvaTaux, Commande commande, Menu menu) {
+        this();
         this.quantite = quantite;
         this.prix = prix;
         this.tvaTaux = tvaTaux;
@@ -108,6 +125,46 @@ public class LigneDeCommande implements Serializable {
 
     public void setMenu(Menu menu) {
         this.menu = menu;
+    }
+
+    public Collection<LigneDeCommande> getSousLignesDeCommandes() {
+        return sousLignesDeCommandes;
+    }
+
+    public void setSousLignesDeCommandes(Collection<LigneDeCommande> sousLignesDeCommandes) {
+        this.sousLignesDeCommandes = sousLignesDeCommandes;
+    }
+
+    public LigneDeCommande getLigneParent() {
+        return ligneParent;
+    }
+
+    public void setLigneParent(LigneDeCommande ligneParent) {
+        this.ligneParent = ligneParent;
+    }
+
+    public Collection<OptionGratuite> getOptionGratuites() {
+        return optionGratuites;
+    }
+
+    public void setOptionGratuites(Collection<OptionGratuite> optionGratuites) {
+        this.optionGratuites = optionGratuites;
+    }
+
+    public Collection<SupplementPayant> getSupplementPayants() {
+        return supplementPayants;
+    }
+
+    public void setSupplementPayants(Collection<SupplementPayant> supplementPayants) {
+        this.supplementPayants = supplementPayants;
+    }
+
+    public Collection<Element> getElements() {
+        return elements;
+    }
+
+    public void setElements(Collection<Element> elements) {
+        this.elements = elements;
     }
 
     

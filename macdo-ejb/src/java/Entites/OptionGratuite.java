@@ -1,10 +1,12 @@
 package Entites;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class OptionGratuite implements Serializable {
@@ -17,6 +19,9 @@ public class OptionGratuite implements Serializable {
     private String nom;
     
     private String description;
+    
+    @ManyToMany(mappedBy = "OptionGratuites")
+    private Collection<LigneDeCommande> LigneDeCommandes;
 
     
     
@@ -31,7 +36,12 @@ public class OptionGratuite implements Serializable {
         this.nom = nom;
         this.description = description;
     }
-    
+
+    public OptionGratuite(String nom, String description, Collection<LigneDeCommande> LigneDeCommandes) {
+        this.nom = nom;
+        this.description = description;
+        this.LigneDeCommandes = LigneDeCommandes;
+    }
     
     
     
@@ -58,6 +68,16 @@ public class OptionGratuite implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public Collection<LigneDeCommande> getLigneDeCommandes() {
+        return LigneDeCommandes;
+    }
+
+    public void setLigneDeCommandes(Collection<LigneDeCommande> LigneDeCommandes) {
+        this.LigneDeCommandes = LigneDeCommandes;
+    }
+    
+    
     
     
 

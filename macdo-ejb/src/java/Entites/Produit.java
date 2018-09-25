@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Produit implements Serializable {
@@ -51,7 +52,7 @@ public class Produit implements Serializable {
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Collection<OptionGratuite> optionGratuites;
     
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "produit" )
     private Collection<LigneDeCommande> ligneDeCommandes;
 
     //Constructeurs

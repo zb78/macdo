@@ -1,6 +1,7 @@
 package Entites;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,22 +24,24 @@ public class Type implements Serializable {
 
     //Associations
     @OneToMany(mappedBy = "type")
-    private Collection<Produit> produit;
+    private Collection<Produit> produits;
 
     @OneToMany(mappedBy = "type")
     private Collection<Menu> menus;
 
     //Constructeurs
     public Type() {
+        produits = new ArrayList();
+        menus = new ArrayList();
     }
 
     public Type(String nom) {
         this.nom = nom;
     }
 
-    public Type(String nom, Collection<Produit> produit, Collection<Menu> menus) {
+    public Type(String nom, Collection<Produit> produits, Collection<Menu> menus) {
         this.nom = nom;
-        this.produit = produit;
+        this.produits = produits;
         this.menus = menus;
     }
 
@@ -61,12 +64,12 @@ public class Type implements Serializable {
         this.id = id;
     }
 
-    public Collection<Produit> getProduit() {
-        return produit;
+    public Collection<Produit> getProduits() {
+        return produits;
     }
 
-    public void setProduit(Collection<Produit> produit) {
-        this.produit = produit;
+    public void setProduit(Collection<Produit> produits) {
+        this.produits = produits;
     }
 
     public Collection<Menu> getMenus() {

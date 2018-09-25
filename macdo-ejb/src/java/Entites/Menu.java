@@ -15,7 +15,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
@@ -39,14 +38,19 @@ public class Menu implements Serializable{
     
     private String image;
     
-    @OneToMany(mappedBy = "menu")
-    private Collection<LigneDeCommande> ligneDeCommandes;
+    @OneToMany(mappedBy = "menus")
+    private LigneDeCommande ligneDeCommande;
     
     @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     private Collection<OptionGratuite> optionGratuites;
+    
+    @OneToMany(mappedBy = "menus")
+    private Type type;
+    
+    @OneToMany(mappedBy = "menus")
+    private Tva tva;
 
     public Menu() {
-        ligneDeCommandes = new ArrayList<>();
         optionGratuites = new ArrayList<>();
     }
 
@@ -58,7 +62,15 @@ public class Menu implements Serializable{
         this.image = image;
     }
 
-    
+    public Menu(String nom, Float prix, String description, String image, LigneDeCommande ligneDeCommande, Type type) {
+        this();
+        this.nom = nom;
+        this.prix = prix;
+        this.description = description;
+        this.image = image;
+        this.ligneDeCommande = ligneDeCommande;
+        this.type = type;
+    }
     
     public Long getId() {
         return id;
@@ -100,13 +112,31 @@ public class Menu implements Serializable{
         this.image = image;
     }
 
-    public Collection<LigneDeCommande> getLigneDeCommandes() {
-        return ligneDeCommandes;
+    public LigneDeCommande getLigneDeCommande() {
+        return ligneDeCommande;
     }
 
-    public void setLigneDeCommandes(Collection<LigneDeCommande> ligneDeCommandes) {
-        this.ligneDeCommandes = ligneDeCommandes;
+    public void setLigneDeCommande(LigneDeCommande ligneDeCommande) {
+        this.ligneDeCommande = ligneDeCommande;
     }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public Tva getTva() {
+        return tva;
+    }
+
+    public void setTva(Tva tva) {
+        this.tva = tva;
+    }
+
+
 
     public Collection<OptionGratuite> getOptionGratuites() {
         return optionGratuites;

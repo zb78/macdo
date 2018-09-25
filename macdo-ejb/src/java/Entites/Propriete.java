@@ -1,6 +1,7 @@
 package Entites;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,14 +29,17 @@ public class Propriete implements Serializable {
 
     //Constructeurs
     public Propriete() {
+        produits = new ArrayList();
     }
 
     public Propriete(String nom, String valeur) {
+        this();
         this.nom = nom;
         this.valeur = valeur;
     }
 
     public Propriete(String nom, String valeur, Collection<Produit> produits) {
+        this();
         this.nom = nom;
         this.valeur = valeur;
         this.produits = produits;

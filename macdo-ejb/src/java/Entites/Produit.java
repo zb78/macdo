@@ -1,6 +1,7 @@
 package Entites;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -45,16 +46,25 @@ public class Produit implements Serializable {
     private Collection<Element> elements;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    private Collection<SupplementPayant> supplementpaynts;
+    private Collection<SupplementPayant> supplementPayants;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    private Collection<OptionGratuite> optiongratuites;
+    private Collection<OptionGratuite> optionGratuites;
+    
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private Collection<LigneDeCommande> ligneDeCommandes;
 
     //Constructeurs
     public Produit() {
+       proprietes = new ArrayList();
+       elements = new ArrayList();
+       supplementPayants = new ArrayList();
+       optionGratuites = new ArrayList();
+       ligneDeCommandes = new ArrayList();
     }
 
     public Produit(String nom, float prix, int statut, String description, String image) {
+        this();
         this.nom = nom;
         this.prix = prix;
         this.statut = statut;
@@ -62,7 +72,8 @@ public class Produit implements Serializable {
         this.image = image;
     }
 
-    public Produit(String nom, float prix, int statut, String description, String image, Tva tva, Type type, Statut statuts, Collection<Propriete> proprietes, Collection<Element> elements, Collection<SupplementPayant> supplementpaynts, Collection<OptionGratuite> optiongratuites) {
+    public Produit(String nom, float prix, int statut, String description, String image, Tva tva, Type type, Statut statuts, Collection<Propriete> proprietes, Collection<Element> elements, Collection<SupplementPayant> supplementPayants, Collection<OptionGratuite> optionGratuites, Collection<LigneDeCommande> ligneDeCommandes) {
+        this();
         this.nom = nom;
         this.prix = prix;
         this.statut = statut;
@@ -73,10 +84,12 @@ public class Produit implements Serializable {
         this.statuts = statuts;
         this.proprietes = proprietes;
         this.elements = elements;
-        this.supplementpaynts = supplementpaynts;
-        this.optiongratuites = optiongratuites;
+        this.supplementPayants = supplementPayants;
+        this.optionGratuites = optionGratuites;
+        this.ligneDeCommandes = ligneDeCommandes;
     }
 
+    
     //Getters
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -148,22 +161,55 @@ public class Produit implements Serializable {
         this.elements = elements;
     }
 
-    public Collection<SupplementPayant> getSupplementpaynts() {
-        return supplementpaynts;
+    public Collection<SupplementPayant> getSupplementPayants() {
+        return supplementPayants;
     }
 
-    public void setSupplementpaynts(Collection<SupplementPayant> supplementpaynts) {
-        this.supplementpaynts = supplementpaynts;
+    public void setSupplementpayants(Collection<SupplementPayant> supplementPayants) {
+        this.supplementPayants = supplementPayants;
     }
 
-    public Collection<OptionGratuite> getOptiongratuites() {
-        return optiongratuites;
+    public Collection<OptionGratuite> getOptionGratuites() {
+        return optionGratuites;
     }
 
-    public void setOptiongratuites(Collection<OptionGratuite> optiongratuites) {
-        this.optiongratuites = optiongratuites;
+    public void setOptiongratuites(Collection<OptionGratuite> optionGratuites) {
+        this.optionGratuites = optionGratuites;
     }
 
+    public Tva getTva() {
+        return tva;
+    }
+
+    public void setTva(Tva tva) {
+        this.tva = tva;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public Statut getStatuts() {
+        return statuts;
+    }
+
+    public void setStatuts(Statut statuts) {
+        this.statuts = statuts;
+    }
+
+    public Collection<LigneDeCommande> getLigneDeCommandes() {
+        return ligneDeCommandes;
+    }
+
+    public void setLigneDeCommandes(Collection<LigneDeCommande> ligneDeCommandes) {
+        this.ligneDeCommandes = ligneDeCommandes;
+    }
+    
+    
     //Autres
     @Override
     public String toString() {

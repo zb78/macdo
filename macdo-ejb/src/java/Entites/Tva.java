@@ -1,6 +1,7 @@
 package Entites;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,22 +22,26 @@ public class Tva implements Serializable {
 
     //Associations
     @OneToMany(mappedBy = "tva")
-    private Collection<Produit> produit;
+    private Collection<Produit> produits;
 
     @OneToMany(mappedBy = "tva")
     private Collection<Menu> menus;
 
     //Constructeurs
     public Tva() {
+        produits = new ArrayList();
+        menus = new ArrayList();
     }
 
     public Tva(float taux) {
+        this();
         this.taux = taux;
     }
 
-    public Tva(float taux, Collection<Produit> produit, Collection<Menu> menus) {
+    public Tva(float taux, Collection<Produit> produits, Collection<Menu> menus) {
+        this();
         this.taux = taux;
-        this.produit = produit;
+        this.produits = produits;
         this.menus = menus;
     }
 
@@ -59,12 +64,12 @@ public class Tva implements Serializable {
         this.id = id;
     }
 
-    public Collection<Produit> getProduit() {
-        return produit;
+    public Collection<Produit> getProduits() {
+        return produits;
     }
 
-    public void setProduit(Collection<Produit> produit) {
-        this.produit = produit;
+    public void setProduits(Collection<Produit> produits) {
+        this.produits = produits;
     }
 
     public Collection<Menu> getMenus() {

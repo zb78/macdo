@@ -15,6 +15,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
@@ -44,10 +45,10 @@ public class Menu implements Serializable{
     @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     private Collection<OptionGratuite> optionGratuites;
     
-    @OneToMany(mappedBy = "menus")
+    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     private Type type;
     
-    @OneToMany(mappedBy = "menus")
+    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     private Tva tva;
 
     public Menu() {

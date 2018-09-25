@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Produit implements Serializable {
@@ -24,8 +25,8 @@ public class Produit implements Serializable {
     @Column(nullable = false)
     private String nom;
     @Column(nullable = false)
-    private float prix;
-    private int statut;
+    private Float prix;
+    private Integer statut;
     private String description;
     private String image;
 
@@ -51,7 +52,7 @@ public class Produit implements Serializable {
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Collection<OptionGratuite> optionGratuites;
     
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "produit" )
     private Collection<LigneDeCommande> ligneDeCommandes;
 
     //Constructeurs
@@ -63,7 +64,7 @@ public class Produit implements Serializable {
        ligneDeCommandes = new ArrayList();
     }
 
-    public Produit(String nom, float prix, int statut, String description, String image) {
+    public Produit(String nom, Float prix, Integer statut, String description, String image) {
         this();
         this.nom = nom;
         this.prix = prix;
@@ -72,7 +73,7 @@ public class Produit implements Serializable {
         this.image = image;
     }
 
-    public Produit(String nom, float prix, int statut, String description, String image, Tva tva, Type type, Statut statuts, Collection<Propriete> proprietes, Collection<Element> elements, Collection<SupplementPayant> supplementPayants, Collection<OptionGratuite> optionGratuites, Collection<LigneDeCommande> ligneDeCommandes) {
+    public Produit(String nom, Float prix, Integer statut, String description, String image, Tva tva, Type type, Statut statuts, Collection<Propriete> proprietes, Collection<Element> elements, Collection<SupplementPayant> supplementPayants, Collection<OptionGratuite> optionGratuites, Collection<LigneDeCommande> ligneDeCommandes) {
         this();
         this.nom = nom;
         this.prix = prix;
@@ -120,11 +121,11 @@ public class Produit implements Serializable {
         this.nom = nom;
     }
 
-    public void setPrix(float prix) {
+    public void setPrix(Float prix) {
         this.prix = prix;
     }
 
-    public void setStatut(int statut) {
+    public void setStatut(Integer statut) {
         this.statut = statut;
     }
 

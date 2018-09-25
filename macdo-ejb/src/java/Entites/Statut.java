@@ -1,6 +1,7 @@
 package Entites;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,21 +25,24 @@ public class Statut implements Serializable {
 
     //Associations
     @OneToMany(mappedBy = "statuts")
-    private Collection<Produit> produit;
+    private Collection<Produit> produits;
 
     //Constructeurs
     public Statut() {
+        produits = new ArrayList();
     }
 
     public Statut(int nombre, String nom) {
+        this();
         this.nombre = nombre;
         this.nom = nom;
     }
 
-    public Statut(int nombre, String nom, Collection<Produit> produit) {
+    public Statut(int nombre, String nom, Collection<Produit> produits) {
+        this();
         this.nombre = nombre;
         this.nom = nom;
-        this.produit = produit;
+        this.produits = produits;
     }
 
     //Getters
@@ -72,12 +76,12 @@ public class Statut implements Serializable {
         this.id = id;
     }
 
-    public Collection<Produit> getProduit() {
-        return produit;
+    public Collection<Produit> getProduits() {
+        return produits;
     }
 
-    public void setProduit(Collection<Produit> produit) {
-        this.produit = produit;
+    public void setProduits(Collection<Produit> produits) {
+        this.produits = produits;
     }
 
     //Autres

@@ -29,8 +29,8 @@ public class CreaJeu {
         
         
         // Persist --------------------- 
-        em.persist(e01);
-        em.persist(e02);
+        em.persist(p01);
+        em.persist(p02);
         
         // Transaction --------------------- 
         EntityTransaction et = em.getTransaction();

@@ -39,7 +39,7 @@ public class Menu implements Serializable{
     
     private String image;
     
-    @OneToMany(mappedBy = "menus")
+    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     private LigneDeCommande ligneDeCommande;
     
     @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})

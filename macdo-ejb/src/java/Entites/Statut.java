@@ -19,7 +19,7 @@ public class Statut implements Serializable {
     private Long id;
 
     //Attributs
-    private int nombre;
+    private Integer nombre;
     @Column(nullable = false)
     private String nom;
 
@@ -32,13 +32,13 @@ public class Statut implements Serializable {
         produits = new ArrayList();
     }
 
-    public Statut(int nombre, String nom) {
+    public Statut(Integer nombre, String nom) {
         this();
         this.nombre = nombre;
         this.nom = nom;
     }
 
-    public Statut(int nombre, String nom, Collection<Produit> produits) {
+    public Statut(Integer nombre, String nom, Collection<Produit> produits) {
         this();
         this.nombre = nombre;
         this.nom = nom;
@@ -59,7 +59,7 @@ public class Statut implements Serializable {
     }
 
     //Setters
-    public void setNombre(int nombre) {
+    public void setNombre(Integer nombre) {
         this.nombre = nombre;
     }
 

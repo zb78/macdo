@@ -18,7 +18,7 @@ public class Tva implements Serializable {
     private Long id;
 
     //Attributs
-    private float taux;
+    private Float taux;
 
     //Associations
     @OneToMany(mappedBy = "tva")
@@ -38,7 +38,7 @@ public class Tva implements Serializable {
         this.taux = taux;
     }
 
-    public Tva(float taux, Collection<Produit> produits, Collection<Menu> menus) {
+    public Tva(Float taux, Collection<Produit> produits, Collection<Menu> menus) {
         this();
         this.taux = taux;
         this.produits = produits;
@@ -51,7 +51,7 @@ public class Tva implements Serializable {
     }
 
     //Setters
-    public void setTaux(float taux) {
+    public void setTaux(Float taux) {
         this.taux = taux;
     }
 

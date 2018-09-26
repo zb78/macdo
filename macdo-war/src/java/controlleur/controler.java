@@ -60,7 +60,7 @@ public class controler extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
          response.setContentType("text/html;charset=UTF-8");
-        String url = "/WEB-INF/jspMain3.jsp";
+        String url = "/WEB-INF/home.jsp";
 
         if (request.getParameter("section") != null) {
             String name = request.getParameter("section");

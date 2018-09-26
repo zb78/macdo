@@ -17,6 +17,7 @@ import javax.ejb.Stateless;
 @Stateless
 public class CreationDonnees implements CreationDonneesLocal {
     
+    @Override
     public void creerDonnes(){
         Date date1 = new GregorianCalendar(2018, 8, 25, 19, 50).getTime();
         Commande commande1 = new Commande(date1);

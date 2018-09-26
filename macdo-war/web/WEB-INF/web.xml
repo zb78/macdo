@@ -3,18 +3,14 @@
     <servlet>
         <servlet-name>controler</servlet-name>
         <servlet-class>controlleur.controler</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>CreationDonnees</servlet-name>
-        <servlet-class>controlleur.secondaires.CreationDonnees</servlet-class>
+        <init-param>
+            <param-name>CreationDonnees</param-name>
+            <param-value>controlleur.secondaires.CreationDonnees</param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>controler</servlet-name>
         <url-pattern>/controler</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CreationDonnees</servlet-name>
-        <url-pattern>/CreationDonnees</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -14,7 +14,7 @@
     <body>
         <h1>Hello World!</h1>
         
-        <a href="controler?CreationDonnees">Creation des données</a>
+        <a href="controler?section=CreationDonnees">Creation des données</a>
         
     </body>
 </html>

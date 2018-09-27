@@ -13,9 +13,13 @@ import Entites.Type;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 @Stateless
 public class CreationDonnees implements CreationDonneesLocal {
+    @PersistenceContext
+    private EntityManager em;
     
     @Override
     public void creerDonnes(){
@@ -66,7 +70,7 @@ public class CreationDonnees implements CreationDonneesLocal {
         /* PROPAL */
         Statut statut1 = new Statut(0, "A PREPARER EN CUISINE");
         Statut statut2 = new Statut(1, "EN COURS DE PREPARATION EN CUISINE");
-        Statut statut3 = new Statut(2, "PRET");
+        Statut statut3 = new Statut(2, "PRET");  
         
         
         Propriete propriete1 = new Propriete("Volume de 50cL", "50cL");
@@ -82,76 +86,76 @@ public class CreationDonnees implements CreationDonneesLocal {
         // !!!!!!!!!!! PRIX PRODUIT A REVOIR !!!!!!!!!!! PRIX PRODUIT A REVOIR !!!!!!!!!!! 
         Produit produit1 = new Produit("Big Mac", 4.0F, 0,
                 "Deux steack hachés, du cheddar fondu, 3 buns de pain, des oignons, des cornichons, deux lits de salade et une sauce inimitable...", 
-                "image");
+                "/WEB-INF/Images_Projet_Team2/BigMac.jpg");
         /*   // PROBLEME CONCERNANT LES PRIX //
                 ici 4.0F c'est le prix HT du BIG MAC (qui est à 4.40€TTC sur le site)
         */
-        produit1.getElements().add(element1);
-        produit1.getElements().add(element2);
-        produit1.getElements().add(element3);
-        produit1.getElements().add(element4);
-        produit1.getElements().add(element5);
-        produit1.setType(type2);
+//        produit1.getElements().add(element1);
+//        produit1.getElements().add(element2);
+//        produit1.getElements().add(element3);
+//        produit1.getElements().add(element4);
+//        produit1.getElements().add(element5);
+//        produit1.setType(type2);
         Produit produit2 = new Produit("GRANDE FRITE", 2.6F, 0, 
                 "Ce sont toujours les vedettes des restaurants. Créées à partir de pommes de terre à chair blanche, elles sont aussi longues que croustillantes. Cuites avec de l'huile végétale, elles sont servies avec du ketchup, de la sauce moutarde ou une sauce spéciale.", 
                 "image");
-        produit2.setType(type3);
+//        produit2.setType(type3);
         Produit produit3 = new Produit("GRAND COCA-COLA®", 2.6F, 3, 
                 "50cl\n\n original taste = goût original", 
                 "image");
         produit3.getProprietes().add(propriete1);
-        produit3.getElements().add(element6);
-        produit3.setType(type4);
+//        produit3.getElements().add(element6);
+//        produit3.setType(type4);
         Produit produit4 = new Produit("SALADE CHICKEN CAESAR", 7.3F, 3, 
                 "Salade composée d'un mélange de romaine et de batavia, de 2 spécialités panées au poulet, de tomates-cerises, de copeaux de fromage et de délicieux croûtons saveur ail et fines herbes.\n\nServie avec une sauce Caesar.\n\nChicken = spécialité panée au poulet.", 
                 "image");
-        produit4.setType(type5);
+//        produit4.setType(type5);
         produit4.getOptionGratuites().add(optionGratuite1);
         Produit produit5 = new Produit("EVIAN® (33CL)", 2.3F, 3, 
                 "EVIAN® (33CL)",
                 "image");
         produit5.getProprietes().add(propriete2);
-        produit5.setType(type4);
+//        produit5.setType(type4);
         Produit produit6 = new Produit("MOYENNE FRITE", 2.3F, 0, 
                 "Ce sont toujours les vedettes des restaurants. Créées à partir de pommes de terre à chair blanche, elles sont aussi longues que croustillantes. Cuites avec de l'huile végétale, elles sont servies avec du ketchup, de la sauce moutarde ou une sauce spéciale.",
                 "image");
-        produit6.setType(type3);
+//        produit6.setType(type3);
         Produit produit7 = new Produit("MOYEN COCA-COLA®", 2.3F, 0, 
                 "40cl", 
                 "image");  
         produit7.getProprietes().add(propriete3);
-        produit7.getElements().add(element6);
-        produit7.setType(type4);
+//        produit7.getElements().add(element6);
+//        produit7.setType(type4);
         Produit produit8 = new Produit("CHEESEBURGER", 1.8F, 0, 
                 "Un steak haché, une tranche de cheddar fondu, des cornichons, des oignons, du ketchup et de la moutarde douce dans un pain classique : fondez pour son goût unique et emblématique.\n\nPain spécial, steak haché, fromage fondu, oignon, cornichon, moutarde, ketchup.", 
                 "image");  
-        produit8.getElements().add(element2);
-        produit8.getElements().add(element4);
-        produit8.getElements().add(element5);
-        produit8.getElements().add(element7);
-        produit8.getElements().add(element8);
-        produit8.setType(type2);
+//        produit8.getElements().add(element2);
+//        produit8.getElements().add(element4);
+//        produit8.getElements().add(element5);
+//        produit8.getElements().add(element7);
+//        produit8.getElements().add(element8);
+//        produit8.setType(type2);
         Produit produit9 = new Produit("PETITE FRITE", 1.8F, 0, 
                 "Ce sont toujours les vedettes des restaurants. Créées à partir de pommes de terre à chair blanche, elles sont aussi longues que croustillantes. Cuites avec de l'huile végétale, elles sont servies avec du ketchup, de la sauce moutarde ou une sauce spéciale.", 
                 "image");   
         produit9.getProprietes().add(propriete4);
-        produit9.setType(type4);
+//        produit9.setType(type4);
         Produit produit10 = new Produit("MINUTE MAID® ORANGE (20CL)", 1.77F, 3, 
                 "20cl", 
                 "image");
-        produit10.setType(type3);
+//        produit10.setType(type3);
         Produit produit11 = new Produit("P'TITE POMME", 1.36F, 3, 
                 "Apportez une note fruitée à votre repas. Craquez pour les savoureux quartiers de pommes croquants.", 
                 "image");   
-        produit11.setType(type6);
+//        produit11.setType(type6);
         Produit produit12 = new Produit("LIVRE", 2.37F, 3, 
                 "Place à la lecture dans ton Happy Meal ! En ce moment, 2 livres inédits à collectionner.", 
                 "image");  
-        produit12.setType(type7);
+//        produit12.setType(type7);
         Produit produit13 = new Produit("SAUCE CAESAR", 0.18F, 3, 
                 "LA SAUCE CAESAR", 
                 "image");  
-        produit13.setType(type8);
+//        produit13.setType(type8);
         
         optionGratuite1.getProduits().add(produit13);
         
@@ -185,18 +189,18 @@ public class CreationDonnees implements CreationDonneesLocal {
         LigneDeCommande ligneDeCommande1 = new LigneDeCommande(1, menu1.getPrix(), tva1.getTaux(), commande1);
         LigneDeCommande ligneDeCommande11 = new LigneDeCommande(1, produit1.getPrix(), tva1.getTaux(), commande1);
         ligneDeCommande11.setLigneParent(ligneDeCommande1);
-        ligneDeCommande11.getElements().add(element1);
-        ligneDeCommande11.getElements().add(element2);
-        ligneDeCommande11.getElements().add(element3);
-        ligneDeCommande11.getElements().add(element4);
-        ligneDeCommande11.getElements().add(element5);
+//        ligneDeCommande11.getElements().add(element1);
+//        ligneDeCommande11.getElements().add(element2);
+//        ligneDeCommande11.getElements().add(element3);
+//        ligneDeCommande11.getElements().add(element4);
+//        ligneDeCommande11.getElements().add(element5);
         ligneDeCommande11.setProduit(produit1);
         LigneDeCommande ligneDeCommande12 = new LigneDeCommande(1, produit2.getPrix(), tva1.getTaux(), commande1);
         ligneDeCommande12.setLigneParent(ligneDeCommande1);
         ligneDeCommande12.setProduit(produit2);
         LigneDeCommande ligneDeCommande13 = new LigneDeCommande(1, produit3.getPrix(), tva1.getTaux(), commande1);
         ligneDeCommande13.setLigneParent(ligneDeCommande1);
-        ligneDeCommande13.getElements().add(element6);
+//        ligneDeCommande13.getElements().add(element6);
         ligneDeCommande13.setProduit(produit3);
         
         LigneDeCommande ligneDeCommande2 = new LigneDeCommande(1, menu2.getPrix(), tva1.getTaux(), commande1);
@@ -220,17 +224,17 @@ public class CreationDonnees implements CreationDonneesLocal {
         ligneDeCommande32.setProduit(produit6);
         LigneDeCommande ligneDeCommande33 = new LigneDeCommande(1, produit7.getPrix(), tva1.getTaux(), commande1);
         ligneDeCommande33.setLigneParent(ligneDeCommande3);
-        ligneDeCommande33.getElements().add(element6);
+//        ligneDeCommande33.getElements().add(element6);
         ligneDeCommande33.setProduit(produit7);
         
         LigneDeCommande ligneDeCommande4 = new LigneDeCommande(1, menu4.getPrix(), tva1.getTaux(), commande1);
         LigneDeCommande ligneDeCommande41 = new LigneDeCommande(1, produit1.getPrix(), tva1.getTaux(), commande1);
         ligneDeCommande41.setLigneParent(ligneDeCommande4);
-        ligneDeCommande41.getElements().add(element2);
-        ligneDeCommande41.getElements().add(element4);
-        ligneDeCommande41.getElements().add(element5);
-        ligneDeCommande41.getElements().add(element7);
-        ligneDeCommande41.getElements().add(element8);
+//        ligneDeCommande41.getElements().add(element2);
+//        ligneDeCommande41.getElements().add(element4);
+//        ligneDeCommande41.getElements().add(element5);
+//        ligneDeCommande41.getElements().add(element7);
+//        ligneDeCommande41.getElements().add(element8);
         ligneDeCommande41.setProduit(produit8);
         LigneDeCommande ligneDeCommande42 = new LigneDeCommande(1, produit9.getPrix(), tva1.getTaux(), commande1);
         ligneDeCommande42.setLigneParent(ligneDeCommande4);
@@ -244,6 +248,21 @@ public class CreationDonnees implements CreationDonneesLocal {
         LigneDeCommande ligneDeCommande45 = new LigneDeCommande(1, produit12.getPrix(), tva2.getTaux(), commande1);
         ligneDeCommande45.setLigneParent(ligneDeCommande4);
         ligneDeCommande45.setProduit(produit12);
+        
+        em.persist(ligneDeCommande11);
+        em.persist(ligneDeCommande12);
+        em.persist(ligneDeCommande13);
+        em.persist(ligneDeCommande211);
+        em.persist(ligneDeCommande21);
+        em.persist(ligneDeCommande22);
+        em.persist(ligneDeCommande31);
+        em.persist(ligneDeCommande32);
+        em.persist(ligneDeCommande33);
+        em.persist(ligneDeCommande41);
+        em.persist(ligneDeCommande42);
+        em.persist(ligneDeCommande43);
+        em.persist(ligneDeCommande44);
+        em.persist(ligneDeCommande45);
         
         
     }

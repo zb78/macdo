@@ -26,7 +26,6 @@ public class Produit implements Serializable {
     private String nom;
     @Column(nullable = false)
     private Float prix;
-    private Integer statut;
     @Column(length = 5000)
     private String description;
     private String image;
@@ -39,7 +38,7 @@ public class Produit implements Serializable {
     private Type type;
 
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    private Statut statuts;
+    private Statut statut;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Collection<Propriete> proprietes;
@@ -64,8 +63,16 @@ public class Produit implements Serializable {
        optionGratuites = new ArrayList();
        ligneDeCommandes = new ArrayList();
     }
+    
+    public Produit(String nom, Float prix, String description, String image) {
+        this();
+        this.nom = nom;
+        this.prix = prix;
+        this.description = description;
+        this.image = image;
+    }
 
-    public Produit(String nom, Float prix, Integer statut, String description, String image) {
+    public Produit(String nom, Float prix, Statut statut, String description, String image) {
         this();
         this.nom = nom;
         this.prix = prix;
@@ -74,7 +81,7 @@ public class Produit implements Serializable {
         this.image = image;
     }
 
-    public Produit(String nom, Float prix, Integer statut, String description, String image, Tva tva, Type type, Statut statuts, Collection<Propriete> proprietes, Collection<Element> elements, Collection<SupplementPayant> supplementPayants, Collection<OptionGratuite> optionGratuites, Collection<LigneDeCommande> ligneDeCommandes) {
+    public Produit(String nom, Float prix, Statut statut, String description, String image, Tva tva, Type type, Collection<Propriete> proprietes, Collection<Element> elements, Collection<SupplementPayant> supplementPayants, Collection<OptionGratuite> optionGratuites, Collection<LigneDeCommande> ligneDeCommandes) {
         this();
         this.nom = nom;
         this.prix = prix;
@@ -83,7 +90,6 @@ public class Produit implements Serializable {
         this.image = image;
         this.tva = tva;
         this.type = type;
-        this.statuts = statuts;
         this.proprietes = proprietes;
         this.elements = elements;
         this.supplementPayants = supplementPayants;
@@ -107,7 +113,7 @@ public class Produit implements Serializable {
 
     
 
-    public Integer getStatut() {
+    public Statut getStatut() {
         return statut;
     }
 
@@ -138,7 +144,7 @@ public class Produit implements Serializable {
         this.prix = prix;
     }
 
-    public void setStatut(Integer statut) {
+    public void setStatut(Statut statut) {
         this.statut = statut;
     }
 
@@ -205,14 +211,6 @@ public class Produit implements Serializable {
 
     public void setType(Type type) {
         this.type = type;
-    }
-
-    public Statut getStatuts() {
-        return statuts;
-    }
-
-    public void setStatuts(Statut statuts) {
-        this.statuts = statuts;
     }
 
     public Collection<LigneDeCommande> getLigneDeCommandes() {

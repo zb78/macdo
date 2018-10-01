@@ -63,6 +63,14 @@ public class Produit implements Serializable {
        optionGratuites = new ArrayList();
        ligneDeCommandes = new ArrayList();
     }
+    
+    public Produit(String nom, Float prix, String description, String image) {
+        this();
+        this.nom = nom;
+        this.prix = prix;
+        this.description = description;
+        this.image = image;
+    }
 
     public Produit(String nom, Float prix, Statut statut, String description, String image) {
         this();

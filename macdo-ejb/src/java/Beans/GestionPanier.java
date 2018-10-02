@@ -8,6 +8,7 @@ package Beans;
 import Entites.LigneDeCommande;
 import Entites.Menu;
 import Entites.Produit;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import javax.ejb.Stateful;
@@ -19,49 +20,48 @@ import javax.ejb.Stateful;
 @Stateful
 public class GestionPanier implements GestionPanierLocal {
 
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
-    HashMap<String, LigneDeCommande> panier;
+    private ArrayList<LigneDeCommande> panier;
 
     public GestionPanier() {
-        panier = new HashMap();
+        panier = new ArrayList<>();
     }
 
-    public Collection getPanier() {
-        return panier.values();
+    @Override
+    public ArrayList<LigneDeCommande> getPanier() {
+        return panier;
     }
 
+    @Override
+    public void setPanier(ArrayList<LigneDeCommande> panier) {
+        if (panier != null) {
+            this.panier = panier;
+        }
+    }
+
+    @Override
     public void addArticle(Produit produit) {
-        if (!panier.containsKey(produit.getNom())) {
-            LigneDeCommande lig = new LigneDeCommande(1, produit.getPrix(), produit.getTva().getTaux());
-            panier.put(produit.getNom(), lig);
-        } else {
-            int qty = panier.get(produit.getNom()).getQuantite();
-            panier.get(produit.getNom()).setQuantite(++qty);
-        }
+        LigneDeCommande lig = new LigneDeCommande(1, produit.getPrix(), produit.getTva().getTaux());
+        panier.add(lig);
     }
 
-        public void addArticle(Menu produit) {
-        if (!panier.containsKey(produit.getNom())) {
-            LigneDeCommande lig = new LigneDeCommande(1, produit.getPrix(), produit.getTva().getTaux());
-            panier.put(produit.getNom(), lig);
-        } else {
-            int qty = panier.get(produit.getNom()).getQuantite();
-            panier.get(produit.getNom()).setQuantite(++qty);
-        }
+    @Override
+    public void addArticle(Menu produit) {
+        LigneDeCommande lig = new LigneDeCommande(1, produit.getPrix(), produit.getTva().getTaux());
+        panier.add(lig);
     }
-    
+
+    @Override
     public void removeArticle(Produit produit) {
-        if (panier.containsKey(produit.getNom())) {
-            LigneDeCommande lig = panier.get(produit.getNom());
-            int qty = lig.getQuantite();
-            if (qty == 1) {
-                panier.remove(produit.getNom());
-            } else {
-                lig.setQuantite(--qty);
-            }
-        }
+        LigneDeCommande lig = new LigneDeCommande(1, produit.getPrix(), produit.getTva().getTaux());
+        panier.remove(lig);
     }
-    
-    
+
+    public void removeArticle(Menu produit) {
+        LigneDeCommande lig = new LigneDeCommande(1, produit.getPrix(), produit.getTva().getTaux());
+        panier.remove(lig);
+    }
+
+    public void removeArticle(Integer indiceOfPanier) {
+        panier.remove(indiceOfPanier.intValue());
+    }
 }

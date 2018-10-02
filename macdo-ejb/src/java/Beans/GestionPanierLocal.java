@@ -5,6 +5,10 @@
  */
 package Beans;
 
+import Entites.LigneDeCommande;
+import Entites.Menu;
+import Entites.Produit;
+import java.util.ArrayList;
 import javax.ejb.Local;
 
 /**
@@ -13,5 +17,15 @@ import javax.ejb.Local;
  */
 @Local
 public interface GestionPanierLocal {
+
+    public void addArticle(Menu produit);
+
+    public ArrayList<LigneDeCommande> getPanier();
+
+    public void addArticle(Produit produit);
+
+    public void removeArticle(Produit produit);
+
+    public void setPanier(ArrayList<LigneDeCommande> panier);
     
 }

@@ -3,6 +3,7 @@ package Entites;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -219,6 +220,76 @@ public class Produit implements Serializable {
 
     public void setLigneDeCommandes(Collection<LigneDeCommande> ligneDeCommandes) {
         this.ligneDeCommandes = ligneDeCommandes;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 47 * hash + Objects.hashCode(this.id);
+        hash = 47 * hash + Objects.hashCode(this.nom);
+        hash = 47 * hash + Objects.hashCode(this.prix);
+        hash = 47 * hash + Objects.hashCode(this.description);
+        hash = 47 * hash + Objects.hashCode(this.image);
+        hash = 47 * hash + Objects.hashCode(this.tva);
+        hash = 47 * hash + Objects.hashCode(this.type);
+        hash = 47 * hash + Objects.hashCode(this.statut);
+        hash = 47 * hash + Objects.hashCode(this.proprietes);
+        hash = 47 * hash + Objects.hashCode(this.elements);
+        hash = 47 * hash + Objects.hashCode(this.supplementPayants);
+        hash = 47 * hash + Objects.hashCode(this.optionGratuites);
+        hash = 47 * hash + Objects.hashCode(this.ligneDeCommandes);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Produit other = (Produit) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        if (!Objects.equals(this.nom, other.nom)) {
+            return false;
+        }
+        if (!Objects.equals(this.prix, other.prix)) {
+            return false;
+        }
+        if (!Objects.equals(this.description, other.description)) {
+            return false;
+        }
+        if (!Objects.equals(this.image, other.image)) {
+            return false;
+        }
+        if (!Objects.equals(this.tva, other.tva)) {
+            return false;
+        }
+        if (!Objects.equals(this.type, other.type)) {
+            return false;
+        }
+        if (!Objects.equals(this.statut, other.statut)) {
+            return false;
+        }
+        if (!Objects.equals(this.proprietes, other.proprietes)) {
+            return false;
+        }
+        if (!Objects.equals(this.elements, other.elements)) {
+            return false;
+        }
+        if (!Objects.equals(this.supplementPayants, other.supplementPayants)) {
+            return false;
+        }
+        if (!Objects.equals(this.optionGratuites, other.optionGratuites)) {
+            return false;
+        }
+        if (!Objects.equals(this.ligneDeCommandes, other.ligneDeCommandes)) {
+            return false;
+        }
+        return true;
     }
     
     

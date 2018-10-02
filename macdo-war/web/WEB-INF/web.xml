@@ -8,9 +8,14 @@
             <param-value>controlleur.secondaires.CreationDonnees</param-value>
         </init-param>
         <init-param>
+
             <param-name>MainTop</param-name>
             <param-value>controlleur.secondaires.MainTop</param-value>
         </init-param>
+  <init-param>
+     <param-name>MenuGaucheCtrl</param-name>
+            <param-value>controlleur.secondaires.MenuGaucheCtrl</param-value>
+    </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>controler</servlet-name>

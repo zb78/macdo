@@ -5,7 +5,9 @@
  */
 package controlleur.secondaires;
 
-import Beans.CreationDonneesLocal;
+import Beans.GestionPanierLocal;
+import Entites.LigneDeCommande;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.Context;
@@ -13,30 +15,34 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author cdi314
  */
-public class CreationDonnees implements sousController {
+public class Panier implements sousController {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
+        GestionPanierLocal gestionPanier = lookupGestionPanierLocal();
+        HttpSession session = request.getSession();
 
-        CreationDonneesLocal creationDonnees = lookupCreationDonneesLocal();
-        System.out.println("Debut de création");
+        ArrayList<LigneDeCommande> panier = (ArrayList<LigneDeCommande>) session.getAttribute("panier");
+        if (panier != null) {
+            gestionPanier.setPanier(panier);
+        }
+        
 
-        creationDonnees.creerDonnes();
+        session.setAttribute("panier", gestionPanier.getPanier());
 
-        System.out.println("Creation des données");
-
-        return "/WEB-INF/creationdonnees.jsp";
+        return "/WEB-INF/panier.jsp";
     }
 
-    private CreationDonneesLocal lookupCreationDonneesLocal() {
+    private GestionPanierLocal lookupGestionPanierLocal() {
         try {
             Context c = new InitialContext();
-            return (CreationDonneesLocal) c.lookup("java:global/macdo/macdo-ejb/CreationDonnees!Beans.CreationDonneesLocal");
+            return (GestionPanierLocal) c.lookup("java:global/macdo/macdo-ejb/GestionPanier!Beans.GestionPanierLocal");
         } catch (NamingException ne) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
             throw new RuntimeException(ne);

@@ -1,7 +1,7 @@
 <%-- 
-    Document   : nouvelle-commande
-    Created on : 25 sept. 2018, 15:56:51
-    Author     : cdi312
+    Document   : panier
+    Created on : 2 oct. 2018, 14:10:18
+    Author     : cdi314
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,9 +9,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>nouvelle-commande.jsp</title>
+        <title>Panier</title>
     </head>
     <body>
-        <h1>ICI === NOUVELLE COMMANDE!</h1>
+        <h1>Panier</h1>
+        
     </body>
 </html>

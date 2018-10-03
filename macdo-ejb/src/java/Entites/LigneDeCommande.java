@@ -36,8 +36,8 @@ public class LigneDeCommande implements Serializable {
     @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     private Commande commande;
 
-    @OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE},mappedBy = "ligneDeCommande")
-    private Collection<Menu> menus;
+    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    private Menu menu;
     
     @OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE}, mappedBy = "ligneParent")
     private Collection<LigneDeCommande> sousLignesDeCommandes;
@@ -146,13 +146,16 @@ public class LigneDeCommande implements Serializable {
         this.commande = commande;
     }
 
-    public Collection<Menu> getMenus() {
-        return menus;
+    public Menu getMenu() {
+        return menu;
     }
 
-    public void setMenus(Collection<Menu> menus) {
-        this.menus = menus;
+    public void setMenu(Menu menu) {
+        this.menu = menu;
     }
+
+    
+    
 
     public Produit getProduit() {
         return produit;
@@ -210,7 +213,7 @@ public class LigneDeCommande implements Serializable {
         hash = 41 * hash + Objects.hashCode(this.prix);
         hash = 41 * hash + Objects.hashCode(this.tvaTaux);
         hash = 41 * hash + Objects.hashCode(this.commande);
-        hash = 41 * hash + Objects.hashCode(this.menus);
+        hash = 41 * hash + Objects.hashCode(this.menu);
         hash = 41 * hash + Objects.hashCode(this.sousLignesDeCommandes);
         hash = 41 * hash + Objects.hashCode(this.ligneParent);
         hash = 41 * hash + Objects.hashCode(this.optionGratuites);
@@ -244,7 +247,7 @@ public class LigneDeCommande implements Serializable {
         if (!Objects.equals(this.commande, other.commande)) {
             return false;
         }
-        if (!Objects.equals(this.menus, other.menus)) {
+        if (!Objects.equals(this.menu, other.menu)) {
             return false;
         }
         if (!Objects.equals(this.sousLignesDeCommandes, other.sousLignesDeCommandes)) {
@@ -270,7 +273,7 @@ public class LigneDeCommande implements Serializable {
 
     @Override
     public String toString() {
-        return "LigneDeCommande{" + "id=" + id + ", quantite=" + quantite + ", prix=" + prix + ", tvaTaux=" + tvaTaux + ", commande=" + commande + ", menus=" + menus + ", sousLignesDeCommandes=" + sousLignesDeCommandes + ", ligneParent=" + ligneParent + ", optionGratuites=" + optionGratuites + ", supplementPayants=" + supplementPayants + ", elements=" + elements + ", produit=" + produit + '}';
+        return "LigneDeCommande{" + "id=" + id + ", quantite=" + quantite + ", prix=" + prix + ", tvaTaux=" + tvaTaux + ", commande=" + commande + ", menus=" + menu + ", sousLignesDeCommandes=" + sousLignesDeCommandes + ", ligneParent=" + ligneParent + ", optionGratuites=" + optionGratuites + ", supplementPayants=" + supplementPayants + ", elements=" + elements + ", produit=" + produit + '}';
     }
     
     

@@ -96,37 +96,44 @@ public class CreationDonnees implements CreationDonneesLocal {
         produit1.getElements().add(element4);
         produit1.getElements().add(element5);
         produit1.setType(type2);
+        produit1.setTva(tva1);
         Produit produit2 = new Produit("GRANDE FRITE", 2.6F, statut1, 
                 "Ce sont toujours les vedettes des restaurants. Créées à partir de pommes de terre à chair blanche, elles sont aussi longues que croustillantes. Cuites avec de l'huile végétale, elles sont servies avec du ketchup, de la sauce moutarde ou une sauce spéciale.", 
                 "./Images/GrandeFrite.png");
         produit2.setType(type3);
+        produit1.setTva(tva1);
         Produit produit3 = new Produit("GRAND COCA-COLA®", 2.6F, statut2, 
                 "50cl\n\n original taste = goût original", 
                 "./Images/GrandCoca.png");
         produit3.getProprietes().add(propriete1);
         produit3.getElements().add(element6);
         produit3.setType(type4);
+        produit3.setTva(tva1);
         Produit produit4 = new Produit("SALADE CHICKEN CAESAR", 7.3F, statut2, 
                 "Salade composée d'un mélange de romaine et de batavia, de 2 spécialités panées au poulet, de tomates-cerises, de copeaux de fromage et de délicieux croûtons saveur ail et fines herbes.\n\nServie avec une sauce Caesar.\n\nChicken = spécialité panée au poulet.", 
                 "./Images/saladeCesar.png");
         produit4.setType(type5);
         produit4.getOptionGratuites().add(optionGratuite0);
         produit4.getOptionGratuites().add(optionGratuite1);
+        produit4.setTva(tva1);
         Produit produit5 = new Produit("EVIAN® (33CL)", 2.3F, statut2, 
                 "EVIAN® (33CL)",
                 "./Images/evian33.png");
         produit5.getProprietes().add(propriete2);
         produit5.setType(type4);
+        produit5.setTva(tva1);
         Produit produit6 = new Produit("MOYENNE FRITE", 2.3F, statut1, 
                 "Ce sont toujours les vedettes des restaurants. Créées à partir de pommes de terre à chair blanche, elles sont aussi longues que croustillantes. Cuites avec de l'huile végétale, elles sont servies avec du ketchup, de la sauce moutarde ou une sauce spéciale.",
                 "./Images/MoyenneFrite.png");
         produit6.setType(type3);
+        produit6.setTva(tva1);
         Produit produit7 = new Produit("MOYEN COCA-COLA®", 2.3F, statut2, 
                 "40cl", 
                 "./Images/MoyenCoca.png");
         produit7.getProprietes().add(propriete3);
         produit7.getElements().add(element6);
         produit7.setType(type4);
+        produit7.setTva(tva1);
         Produit produit8 = new Produit("CHEESEBURGER", 1.8F, statut1, 
                 "Un steak haché, une tranche de cheddar fondu, des cornichons, des oignons, du ketchup et de la moutarde douce dans un pain classique : fondez pour son goût unique et emblématique.\n\nPain spécial, steak haché, fromage fondu, oignon, cornichon, moutarde, ketchup.", 
                 "./Images/cheeseburger.png");
@@ -136,27 +143,33 @@ public class CreationDonnees implements CreationDonneesLocal {
         produit8.getElements().add(element7);
         produit8.getElements().add(element8);
         produit8.setType(type2);
+        produit8.setTva(tva1);
         Produit produit9 = new Produit("PETITE FRITE", 1.8F, statut1, 
                 "Ce sont toujours les vedettes des restaurants. Créées à partir de pommes de terre à chair blanche, elles sont aussi longues que croustillantes. Cuites avec de l'huile végétale, elles sont servies avec du ketchup, de la sauce moutarde ou une sauce spéciale.", 
                 "./Images/petiteFrite.png");
         produit9.getProprietes().add(propriete4);
         produit9.setType(type4);
+        produit9.setTva(tva1);
         Produit produit10 = new Produit("MINUTE MAID® ORANGE (20CL)", 1.77F, statut2, 
                 "20cl", 
                 "./Images/minuteMaid20.png");
         produit10.setType(type3);
+        produit10.setTva(tva1);
         Produit produit11 = new Produit("P'TITE POMME", 1.36F, statut2, 
                 "Apportez une note fruitée à votre repas. Craquez pour les savoureux quartiers de pommes croquants.", 
                 "./Images/ptitePomme.png");
         produit11.setType(type6);
+        produit11.setTva(tva1);
         Produit produit12 = new Produit("LIVRE", 2.37F, statut2, 
                 "Place à la lecture dans ton Happy Meal ! En ce moment, 2 livres inédits à collectionner.", 
                 "./Images/livre.png");
         produit12.setType(type7);
+        produit12.setTva(tva2);
         Produit produit13 = new Produit("SAUCE CAESAR", 0.18F, statut2, 
                 "LA SAUCE CAESAR", 
                 "./Images/sauceCesar.png");
         produit13.setType(type8);
+        produit13.setTva(tva1);
         
         optionGratuite0.getProduits().add(produit4);
         optionGratuite1.getProduits().add(produit4);
@@ -173,19 +186,22 @@ public class CreationDonnees implements CreationDonneesLocal {
                 etc.
         */
         menu1.setType(type1);
+        menu1.setTva(tva1);
         Menu menu2 = new Menu("MENU SALADE", 7.27F, 
                 "MENU SALADE\nMenu Salade", 
                 "./Images/menuSalade.png");
         menu2.setType(type1);
+        menu2.setTva(tva1);
         Menu menu3 = new Menu("MENU BEST OF™", 7.0F, 
                 "LE MENU BEST OF, C'EST...\n1 sandwich au choix* - 1 portion moyenne de frites, ou de Deluxe Potatoes, ou 1 P'tite Salade - 1 bouteille d'Evian 33cl, ou 1 bouteille de Badoit 33cl, ou 1 Minute Maid orange 30cl, ou 1 soda 40cl.", 
                 "./Images/MenuBestOf&MenuMaxiBestOf.png");
         menu3.setType(type1);
+        menu3.setTva(tva1);
         Menu menu4 = new Menu("MENU HAPPY MEAL", 3.64F, 
                 "HAPPY MEAL\n- un plat au choix (McFish, Croque McDo, Hamburger, Cheeseburger, Chicken McNuggets)\n\n- un accompagnement au choix (Petite Frite, Crousties, Moyenne Deluxe Potatoes, P'tites Tomates)\n\n- une boisson gazeuse 25cl, ou un jus de fruits Bio ou un Minute Maid Orange 20cl, ou un Lipton Ice Tea 25cl, Evian 33cl\n\n- un dessert au choix (P'tite Pomme, Mon Bio à boire, Berlingo' ou le fruit du moment) et aussi choisissez entre un super jouet ou un beau livre.", 
                 "./Images/menuHappyMeal.png");
         menu4.setType(type1);
-        
+        menu4.setTva(tva1);
         
         LigneDeCommande ligneDeCommande1 = new LigneDeCommande(1, menu1.getPrix(), tva1.getTaux(), commande1);
         LigneDeCommande ligneDeCommande11 = new LigneDeCommande(1, produit1.getPrix(), tva1.getTaux(), commande1);

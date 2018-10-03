@@ -58,6 +58,7 @@ public class LigneDeCommande implements Serializable {
     private Produit produit;
     
     public LigneDeCommande() {
+        System.out.println(">>>>>>>>>>>LigneDeCommande");
         sousLignesDeCommandes = new ArrayList<>();
         optionGratuites = new ArrayList<>();
         supplementPayants = new ArrayList<>();
@@ -69,6 +70,7 @@ public class LigneDeCommande implements Serializable {
         this.quantite = quantite;
         this.prix = prix;
         this.tvaTaux = tvaTaux;
+        System.out.println("------------LigneDeCommande");
     }
 
     public LigneDeCommande(Integer quantite, Float prix, Float tvaTaux, Commande commande) {
@@ -89,6 +91,20 @@ public class LigneDeCommande implements Serializable {
         this.elements = elements;
         this.produit = produit;
     }
+
+    public LigneDeCommande(Produit produit, Integer quantite) {
+        this();
+        this.produit = produit;
+        this.prix = produit.getPrix();
+        this.tvaTaux = produit.getTva().getTaux();
+        this.quantite = quantite;
+    }
+    
+    public LigneDeCommande(Produit produit){
+        this(produit, 1);
+    }
+    
+    
 
     public Long getId() {
         return id;

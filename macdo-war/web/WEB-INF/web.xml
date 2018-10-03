@@ -12,10 +12,14 @@
             <param-name>MainTop</param-name>
             <param-value>controlleur.secondaires.MainTop</param-value>
         </init-param>
-  <init-param>
-     <param-name>MenuGaucheCtrl</param-name>
+        <init-param>
+            <param-name>MenuGaucheCtrl</param-name>
             <param-value>controlleur.secondaires.MenuGaucheCtrl</param-value>
-    </init-param>
+        </init-param>
+        <init-param>
+            <param-name>Panier</param-name>
+            <param-value>controlleur.secondaires.Panier</param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>controler</servlet-name>

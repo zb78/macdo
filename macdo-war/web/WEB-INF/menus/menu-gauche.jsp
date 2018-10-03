@@ -9,10 +9,7 @@
     </li>
     --%>
     <li class="nav-item">
-        <a class="nav-link" href="#"><image class="image" src ="./Images/vignette/enCeMoment.png" title="En ce moment"/>En ce moment</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#"><image class="image" src ="./Images/vignette/menu.png" title="Nos menus"/>Nos Menus</a>
+        <a class="nav-link" href="#"><image src ="./Images/vignette/menu.png" title="Nos menus"/>Nos menus</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="#"><image class="image" src ="./Images/vignette/sandwich.png" title="Nos sandwichs"/>Nos sandwichs</a>
@@ -24,7 +21,7 @@
         <a class="nav-link" href="#"><image class="image" src ="./Images/vignette/salade.png" title="Nos salades"/>Nos salades</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#"><image class="image" src ="./Images/vignette/happyMeal.png" title="Happy Meal"/>Happy Meal</a>
+        <a class="nav-link" href="#"><image src ="./Images/vignette/dessert.png" title="Nos desserts"/>Nos desserts</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="#"><image class="image" src ="./Images/vignette/friteEtSauce.png" title="Frites et sauces"/>Frites et sauces</a>

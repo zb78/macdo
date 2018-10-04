@@ -30,6 +30,7 @@ footer {
     .row.content {height:auto;} 
 }
 
+
 #catalogue{
     flex-direction: row;
     width: 100%;
@@ -47,5 +48,9 @@ footer {
 }
 
 
+
+.image{
+    height: 50px;
+}
 
 /*--------------- CDI1804 --------------- by CL --------------- CDI1804 ---------------*/

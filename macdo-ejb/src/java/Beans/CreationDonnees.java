@@ -165,12 +165,12 @@ public class CreationDonnees implements CreationDonneesLocal {
                 "Place à la lecture dans ton Happy Meal ! En ce moment, 2 livres inédits à collectionner.", 
                 "./Images/livre.png");
 
-        produit12.setType(type7);
+        
         produit12.setTva(tva2);
         Produit produit13 = new Produit("SAUCE CAESAR", 0.18F, statut2, 
                 "LA SAUCE CAESAR", 
                 "./Images/sauceCesar.png");
-        produit13.setType(type8);
+        produit13.setType(type3);
         produit13.setTva(tva1);
 
         

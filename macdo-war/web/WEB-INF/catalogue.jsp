@@ -14,21 +14,27 @@
     </head>
     <body>
 
-        <c:forEach items="${catalogue}" var="c">
-            <div class="container">    
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="panel panel-primary">
+        <div id="catalogue">
+            <div class="container">
+                <div class="row d-flex wrap">
+                    <c:forEach items="${catalogue}" var="c">
 
-                            <div class="panel-body"><img src= "${c.image}" title="${c.nom}"></div>
-                            <div class="panel-footer">${c.nom}</div>
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="card">
+
+                                    <img class="card-img-top mx-auto d-block" style="max-height: 150px; width: auto;" src= "${c.image}" title="${c.nom}">
+                                    <div class="card-body">${c.nom}</div>
+
+                                </div>
+                            </div>
                         </div>
-                    </div>
+
+
+                    </c:forEach>
                 </div>
             </div>
+        </div>
 
-        </c:forEach>
-    </div>
-
-</body>
+    </body>
 </html>

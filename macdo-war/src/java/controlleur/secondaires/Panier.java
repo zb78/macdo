@@ -38,7 +38,6 @@ public class Panier implements sousController {
         gestionPanier.addProduitInPanierById(2L);
         gestionPanier.addProduitInPanierById(3L);
         
-        
         //session.setAttribute("panier", gestionPanier.getPanier());
         
         System.out.println("avant le webinf : "+gestionPanier.getPanier());

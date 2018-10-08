@@ -16,6 +16,10 @@
             <param-value>controlleur.secondaires.MenuGaucheCtrl</param-value>
         </init-param>
         <init-param>
+            <param-name>Panier</param-name>
+            <param-value>controlleur.secondaires.Panier</param-value>
+        </init-param>
+        <init-param>       
             <param-name>CatalogueCtrl</param-name>
             <param-value>controlleur.secondaires.CatalogueCtrl</param-value>
         </init-param>

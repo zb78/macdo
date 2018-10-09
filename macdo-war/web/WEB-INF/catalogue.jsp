@@ -14,7 +14,7 @@
                                     <img class="card-img-top mx-auto d-block" style="max-height: 150px; width: auto;" src= "${c.image}" title="${c.nom}">
                                     <div class="card-body">${c.nom}
                                         <div class="card-footer">
-                                            <a href="controler?section=Panier&add=${c.id}">ADD</a>
+                                            <a class="produit" produit="${c.id}" href="#">ADD</a>
                                             <%--<form action="controler?section=Panier" method="get">
 
                                                 <input type='hidden' name='urlImage' value='${c.id}' />

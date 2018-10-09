@@ -52,7 +52,7 @@ public class Panier implements sousController {
 
         System.out.println("avant le webinf : " + gestionPanier.getPanier());
 
-        return "/WEB-INF/home.jsp";
+        return "/WEB-INF/panier.jsp";
     }
 
     private GestionPanierLocal lookupGestionPanierLocal() {

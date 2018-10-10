@@ -68,10 +68,3 @@ function xmlhttpChange() {
         }
     }
 }
-
-var elements = document.getElementsByClassName("produit");
-var i;
-for (i = 0; i < elements.length; i++) {
-    elements[i].addEventListener("click",go(elements[i]));
-} 
-//elements.addEventListener("click",go());

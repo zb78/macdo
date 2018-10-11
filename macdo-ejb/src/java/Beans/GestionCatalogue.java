@@ -37,7 +37,7 @@ public class GestionCatalogue implements GestionCatalogueLocal {
     
     @Override
     public List<Menu> selectMenusCatalogue(Long idType){ 
-        TypedQuery<Menu> qr = em.createQuery("select m from Menu m where m.type.id :paramId", Menu.class);
+        TypedQuery<Menu> qr = em.createQuery("select m from Menu m where m.type.id = :paramId", Menu.class);
         qr.setParameter("paramId", idType);
         List<Menu> lesMenus = qr.getResultList();
         return lesMenus;
@@ -45,7 +45,8 @@ public class GestionCatalogue implements GestionCatalogueLocal {
     
     @Override
     public List<Produit> selectProduitsCatalogue(Long idType){
-        TypedQuery<Produit> qr = em.createQuery("select p from Produit p where p.type.id :paramId", Produit.class);
+        TypedQuery<Produit> qr = em.createQuery("select p from Produit p where p.type.id = :paramId", Produit.class);
+        qr.setParameter("paramId", idType);
         List<Produit> lesProduits = qr.getResultList();
         return lesProduits;
     }

@@ -22,36 +22,38 @@ public class CatalogueCtrl implements sousController, Serializable {
 //        return url;
 //    }
     
-    @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) {
-        GestionCatalogueLocal gestionCatalogue = lookupGestionCatalogueLocal();
-        
-        
-        List leCatalogue = gestionCatalogue.selectMenusCatalogue();
-        request.setAttribute("catalogue", leCatalogue);
-        leCatalogue = gestionCatalogue.selectProduitsCatalogue();
-        request.setAttribute("catalogue", leCatalogue);
-        String url= "/WEB-INF/catalogue.jsp";
-        return url;
-    }
-    
 //    @Override
 //    public String execute(HttpServletRequest request, HttpServletResponse response) {
-//        String idType = request.getParameter("idType");
 //        GestionCatalogueLocal gestionCatalogue = lookupGestionCatalogueLocal();
-//        List leCatalogue = null;
-//        if (idType.equals(null)) {
-//            leCatalogue = gestionCatalogue.selectMenusCatalogue();
-//            leCatalogue = gestionCatalogue.selectProduitsCatalogue();
-//        } else{
-//            leCatalogue = gestionCatalogue.selectMenusCatalogue(Long.valueOf(idType));
-//            leCatalogue = gestionCatalogue.selectProduitsCatalogue(Long.valueOf(idType));
-//        }
-//        
+//        List leCatalogue = gestionCatalogue.selectMenusCatalogue();
+//        request.setAttribute("catalogue", leCatalogue);
+//        leCatalogue = gestionCatalogue.selectProduitsCatalogue();
 //        request.setAttribute("catalogue", leCatalogue);
 //        String url= "/WEB-INF/catalogue.jsp";
 //        return url;
 //    }
+    
+    @Override
+    public String execute(HttpServletRequest request, HttpServletResponse response) {
+        String ref = request.getParameter("ref");
+        GestionCatalogueLocal gestionCatalogue = lookupGestionCatalogueLocal();
+        List leCatalogue = null;
+        System.out.println(">>>>>>>>>>>>>>>"+ ref);
+        if ("all".equals(ref)) {
+            leCatalogue = gestionCatalogue.selectTypesCatalogue();
+            request.setAttribute("test", 00);
+        }
+        else if(Long.valueOf(ref)==5){
+            leCatalogue = gestionCatalogue.selectMenusCatalogue(Long.valueOf(ref));
+            request.setAttribute("test", 5);
+        }else{
+            leCatalogue = gestionCatalogue.selectProduitsCatalogue(Long.valueOf(ref));
+            request.setAttribute("test", 10);
+        }
+        request.setAttribute("catalogue", leCatalogue);
+        String url= "/WEB-INF/catalogue.jsp";
+        return url;
+    }
 
     private GestionCatalogueLocal lookupGestionCatalogueLocal() {
         try {

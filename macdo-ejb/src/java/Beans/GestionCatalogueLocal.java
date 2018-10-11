@@ -14,11 +14,11 @@ public interface GestionCatalogueLocal {
 
     public List<Produit> selectProduitsCatalogue();
 
-    public List<Produit> selectProduitsCatalogue(Long idType);
+    public List<Type> selectTypesCatalogue();
 
     public List<Menu> selectMenusCatalogue(Long idType);
 
-    public List<Type> selectTypesCatalogue();
+    public List<Produit> selectProduitsCatalogue(Long idType);
     
     
 }

@@ -1,7 +1,12 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
-
+<div id="catalogue">
+    <div class="container">
+        <div class="row d-flex wrap">
+            <c:forEach items="${catalogue}" var="c">
+                <div class="row">
+                    <div class="col-4">
 <div id="catalogue">
     <div class="container">
         <div class="row d-flex wrap">
@@ -9,7 +14,7 @@
                 <div class="row">
                     <div class="col-4">
                         <a href="controler?section=Panier&add=${c.id}"><div class="card">
-                                <img class="card-img-top mx-auto d-block" style="max-height: 250px; width: 250px;"src= "${c.image}" title="${c.nom}">
+                                <img class="card-img-top mx-auto d-block" style="max-height: 150px; width: auto;" src= "${c.image}" title="${c.nom}">
                                 <div class="card-body">${c.nom}
                                     <%--<div class="card-footer">
                                         <a href="controler?section=Panier&add=${c.id}">ADD</a>
@@ -27,4 +32,3 @@
         </div>
     </div>
 </div>
-

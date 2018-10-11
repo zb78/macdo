@@ -2,6 +2,8 @@ package Beans;
 
 import Entites.Menu;
 import Entites.Produit;
+import Entites.Type;
+import static com.sun.codemodel.JExpr.ref;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -23,6 +25,21 @@ public class GestionCatalogue implements GestionCatalogueLocal {
     @Override
     public List<Produit> selectProduitsCatalogue(){
         TypedQuery<Produit> qr = em.createQuery("select p from Produit p", Produit.class);
+        List<Produit> lesProduits = qr.getResultList();
+        return lesProduits;
+    }
+    
+    @Override
+    public List<Menu> selectMenusCatalogue(Long idType){ 
+        TypedQuery<Menu> qr = em.createQuery("select m from Menu m where m.type.id :paramId", Menu.class);
+        qr.setParameter("paramId", idType);
+        List<Menu> lesMenus = qr.getResultList();
+        return lesMenus;
+    }
+    
+    @Override
+    public List<Produit> selectProduitsCatalogue(Long idType){
+        TypedQuery<Produit> qr = em.createQuery("select p from Produit p where p.type.id :paramId", Produit.class);
         List<Produit> lesProduits = qr.getResultList();
         return lesProduits;
     }

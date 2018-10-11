@@ -36,32 +36,35 @@ public class GestionPanier implements GestionPanierLocal {
 
     @Override
     public void setPanier(ArrayList<LigneDeCommande> panier) {
-            this.panier = panier;
+        this.panier = panier;
     }
 
     @Override
     public void addArticle(Produit produit) {
-        System.out.println("addArticle++++++++++++"+ produit);
+        System.out.println("addArticle++++++++++++" + produit);
         LigneDeCommande lig = new LigneDeCommande(produit);
         System.out.println("LigneDeCommande done");
-        System.out.println("addArticle>>>"+this.panier);
+        System.out.println("addArticle>>>" + this.panier);
         panier.add(lig);
-        System.out.println("addArticle>>>done"+this.panier);
+        System.out.println("addArticle>>>done" + this.panier);
     }
 
     @Override
     public void addArticle(Menu produit) {
         LigneDeCommande lig = new LigneDeCommande(1, produit.getPrix(), produit.getTva().getTaux());
-        if (panier == null) {
-            System.out.println("null");
+        if (!panier.contains(lig)) {
+            panier.add(lig);
+        }else{
+            int p = panier.indexOf(lig);
+            panier.get(p).setQuantite(panier.get(p).getQuantite()+1);
         }
-        panier.add(lig);
     }
 
     @Override
     public void removeArticle(Produit produit) {
         LigneDeCommande lig = new LigneDeCommande(1, produit.getPrix(), produit.getTva().getTaux());
         panier.remove(lig);
+
     }
 
     @Override
@@ -88,12 +91,12 @@ public class GestionPanier implements GestionPanierLocal {
 
     @Override
     public void addProduitInPanierById(Long id) {
-        
+
         Produit produit = getProduitById(id);
-        System.out.println("panier >>>>>  :"+ panier +"produit :>>>> "+produit);
+        System.out.println("panier >>>>>  :" + panier + "produit :>>>> " + produit);
         if (produit != null) {
             addArticle(produit);
         }
-        System.out.println("panier :<<<<: "+panier);
+        System.out.println("panier :<<<<: " + panier);
     }
 }

@@ -212,7 +212,7 @@ public class LigneDeCommande implements Serializable {
     public int hashCode() {
         int hash = 7;
         hash = 41 * hash + Objects.hashCode(this.id);
-        hash = 41 * hash + Objects.hashCode(this.quantite);
+//        hash = 41 * hash + Objects.hashCode(this.quantite);
         hash = 41 * hash + Objects.hashCode(this.prix);
         hash = 41 * hash + Objects.hashCode(this.tvaTaux);
         hash = 41 * hash + Objects.hashCode(this.commande);
@@ -238,9 +238,9 @@ public class LigneDeCommande implements Serializable {
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
-        if (!Objects.equals(this.quantite, other.quantite)) {
-            return false;
-        }
+//        if (!Objects.equals(this.quantite, other.quantite)) {
+//            return false;
+//        }
         if (!Objects.equals(this.prix, other.prix)) {
             return false;
         }

@@ -1,12 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
-<div id="catalogue">
-    <div class="container">
-        <div class="row d-flex wrap">
-            <c:forEach items="${catalogue}" var="c">
-                <div class="row">
-                    <div class="col-4">
 <div id="catalogue">
     <div class="container">
         <div class="row d-flex wrap">

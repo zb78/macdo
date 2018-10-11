@@ -17,6 +17,8 @@ public interface GestionCatalogueLocal {
     public List<Produit> selectProduitsCatalogue(Long idType);
 
     public List<Menu> selectMenusCatalogue(Long idType);
+
+    public List<Type> selectTypesCatalogue();
     
     
 }

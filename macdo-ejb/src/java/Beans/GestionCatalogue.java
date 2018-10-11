@@ -3,7 +3,6 @@ package Beans;
 import Entites.Menu;
 import Entites.Produit;
 import Entites.Type;
-import static com.sun.codemodel.JExpr.ref;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -15,6 +14,13 @@ public class GestionCatalogue implements GestionCatalogueLocal {
     @PersistenceContext(unitName = "macdo-ejbPU")
     private EntityManager em;
 
+    @Override
+    public List<Type> selectTypesCatalogue(){
+        TypedQuery<Type> qr = em.createQuery("select t from Type t", Type.class);
+        List<Type> lesTypes = qr.getResultList();
+        return lesTypes;
+    }
+    
     @Override
     public List<Menu> selectMenusCatalogue(){
         TypedQuery<Menu> qr = em.createQuery("select m from Menu m", Menu.class);

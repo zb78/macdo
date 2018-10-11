@@ -13,9 +13,20 @@ import javax.servlet.http.HttpServletResponse;
 
 public class CatalogueCtrl implements sousController, Serializable {
     
+//    @Override
+//    public String execute(HttpServletRequest request, HttpServletResponse response) {
+//        GestionCatalogueLocal gestionCatalogue = lookupGestionCatalogueLocal();
+//        List leCatalogue = gestionCatalogue.selectTypesCatalogue();
+//        request.setAttribute("catalogue", leCatalogue);
+//        String url= "/WEB-INF/catalogue.jsp";
+//        return url;
+//    }
+    
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         GestionCatalogueLocal gestionCatalogue = lookupGestionCatalogueLocal();
+        
+        
         List leCatalogue = gestionCatalogue.selectMenusCatalogue();
         request.setAttribute("catalogue", leCatalogue);
         leCatalogue = gestionCatalogue.selectProduitsCatalogue();

@@ -29,7 +29,8 @@
                     <!--<a href="controler?section=CreationDonnees">Creation des données</a>-->
 
                     <div class="container"> 
-                        <c:url value="controler?section=CatalogueCtrl&ref=all" var="catalogue"/>
+
+                        <c:url value="controler?section=CatalogueCtrl&ref=${choix}" var="catalogue"/>
                         <c:import url="${catalogue}" />
 
                     </div>
@@ -72,23 +73,32 @@
                 }
                 return xmlhttp;
             }
-
-            function go(val) {
-                console.log("val : " + val.getAttribute("produit"));
-                url = "controler?section=Panier&add=" + val.getAttribute("produit");
-                console.log(url);
+            
+                function choix() {
+                url = "controler?section=CatalogueCtrl&ref=" + choix.value;
                 // alert( url);
-
                 xmlhttp = getxmlhttp();
                 xmlhttp.onreadystatechange = xmlhttpChange;
                 xmlhttp.open("GET", url, true);
-//      xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                //      xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(null);
             }
 
-            function xmlhttpChange() {
-                if (xmlhttp.readyState == 4) { // if xmlhttp shows "loaded"
-                    if (xmlhttp.status == 200) { // if "OK"
+            function go(val) {
+            console.log("val : " + val.getAttribute("produit"));
+                url = "controler?section=Panier&add=" + val.getAttribute("produit");
+                    console.log(url);
+                // alert( url);
+                        xmlhttp = getxmlhttp();
+                        xmlhttp.onreadystatechange = xmlhttpChange;
+                        xmlhttp.open("GET", url, true);
+                        //      xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                        xmlhttp.send(null);
+            }
+
+                    function xmlhttpChange() {
+                    if (xmlhttp.readyState == 4) { // if xmlhttp shows "loaded"
+            if (xmlhttp.status == 200) { // if "OK"
                         s = xmlhttp.responseText;
                         // alert( "("+s+")");
                         console.log(s);

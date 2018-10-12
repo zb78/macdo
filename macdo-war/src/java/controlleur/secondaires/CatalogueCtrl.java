@@ -1,6 +1,7 @@
 package controlleur.secondaires;
 
 import Beans.GestionCatalogueLocal;
+import Entites.Type;
 import java.io.Serializable;
 import java.util.List;
 import java.util.logging.Level;
@@ -37,19 +38,19 @@ public class CatalogueCtrl implements sousController, Serializable {
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         String ref = request.getParameter("ref");
         GestionCatalogueLocal gestionCatalogue = lookupGestionCatalogueLocal();
-        List leCatalogue = null;
+        List leCatalogue;
         System.out.println(">>>>>>>>>>>>>>>"+ ref);
         if ("all".equals(ref)) {
             leCatalogue = gestionCatalogue.selectTypesCatalogue();
-            request.setAttribute("test", 00);
-        }
-        else if(Long.valueOf(ref)==5){
-            leCatalogue = gestionCatalogue.selectMenusCatalogue(Long.valueOf(ref));
-            request.setAttribute("test", 5);
+            request.setAttribute("type", "all");
+        }else if ("MENU".equals(ref)) {
+            leCatalogue = gestionCatalogue.selectMenusCatalogue(ref);
+            request.setAttribute("type", "menu");
         }else{
-            leCatalogue = gestionCatalogue.selectProduitsCatalogue(Long.valueOf(ref));
-            request.setAttribute("test", 10);
+            leCatalogue = gestionCatalogue.selectProduitsCatalogue(ref);
+            request.setAttribute("type", "produit");
         }
+           
         request.setAttribute("catalogue", leCatalogue);
         String url= "/WEB-INF/catalogue.jsp";
         return url;

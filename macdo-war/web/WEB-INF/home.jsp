@@ -29,7 +29,6 @@
                     <!--<a href="controler?section=CreationDonnees">Creation des données</a>-->
 
                     <div class="container"> 
-                        
                         <c:url value="controler?section=CatalogueCtrl&ref=all" var="catalogue"/>
                         <c:import url="${catalogue}" />
 

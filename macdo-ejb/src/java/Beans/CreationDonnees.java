@@ -189,28 +189,60 @@ public class CreationDonnees implements CreationDonneesLocal {
                 Et les autres 'MENU MAXI BEST OF' sont par exmple à 13.95€TTC pour le signature,
                 etc.
         */
-        menu1.setType(type1);
+        menu1.getTypes().add(type1);
+        menu1.getTypes().add(type2);
+        menu1.getTypes().add(type3);
+        menu1.getTypes().add(type4);
         menu1.setTva(tva1);
         Menu menu2 = new Menu("MENU SALADE", 7.27F, 
                 "MENU SALADE\nMenu Salade", 
                 "./Images/menuSalade.png");
-        menu2.setType(type1);
+        menu2.getTypes().add(type1);
+        menu2.getTypes().add(type5);
+        menu2.getTypes().add(type4);
         menu2.setTva(tva1);
         Menu menu3 = new Menu("MENU BEST OF™", 7.0F, 
                 "LE MENU BEST OF, C'EST...\n1 sandwich au choix* - 1 portion moyenne de frites, ou de Deluxe Potatoes, ou 1 P'tite Salade - 1 bouteille d'Evian 33cl, ou 1 bouteille de Badoit 33cl, ou 1 Minute Maid orange 30cl, ou 1 soda 40cl.", 
                 "./Images/MenuBestOf&MenuMaxiBestOf.png");
-        menu3.setType(type1);
+        menu3.getTypes().add(type1);
+        menu3.getTypes().add(type2);
+        menu3.getTypes().add(type3);
+        menu3.getTypes().add(type4);
         menu3.setTva(tva1);
         Menu menu4 = new Menu("MENU HAPPY MEAL", 3.64F, 
                 "HAPPY MEAL\n- un plat au choix (McFish, Croque McDo, Hamburger, Cheeseburger, Chicken McNuggets)\n\n- un accompagnement au choix (Petite Frite, Crousties, Moyenne Deluxe Potatoes, P'tites Tomates)\n\n- une boisson gazeuse 25cl, ou un jus de fruits Bio ou un Minute Maid Orange 20cl, ou un Lipton Ice Tea 25cl, Evian 33cl\n\n- un dessert au choix (P'tite Pomme, Mon Bio à boire, Berlingo' ou le fruit du moment) et aussi choisissez entre un super jouet ou un beau livre.", 
                 "./Images/menuHappyMeal.png");
-        menu4.setType(type1);
-
+        menu4.getTypes().add(type1);
+        menu4.getTypes().add(type2);
+        menu4.getTypes().add(type3);
+        menu4.getTypes().add(type4);
+        menu4.getTypes().add(type6);
         menu4.setTva(tva1);
-
         menu4.getOptionGratuites().add(optionGratuite2);
         
+        
+        type1.getMenus().add(menu1);
+        type1.getMenus().add(menu2);
+        type1.getMenus().add(menu3);
+        type1.getMenus().add(menu4);
+        
+        type2.getMenus().add(menu1);
+        type2.getMenus().add(menu3);
+        type2.getMenus().add(menu4);
 
+        type3.getMenus().add(menu1);
+        type3.getMenus().add(menu3);
+        type3.getMenus().add(menu4);
+        
+        type4.getMenus().add(menu1);
+        type4.getMenus().add(menu2);
+        type4.getMenus().add(menu3);
+        type4.getMenus().add(menu4);
+        
+        type5.getMenus().add(menu2);
+        
+        type6.getMenus().add(menu4);
+        
         
         LigneDeCommande ligneDeCommande1 = new LigneDeCommande(1, menu1.getPrix(), tva1.getTaux(), commande1);
         ligneDeCommande1.setMenu(menu1);

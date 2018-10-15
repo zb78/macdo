@@ -19,6 +19,7 @@ public interface GestionCatalogueLocal {
     public List<Menu> selectMenusCatalogue(String nomType);
 
     public List<Produit> selectProduitsCatalogue(String nomType);
+
     
     
 }

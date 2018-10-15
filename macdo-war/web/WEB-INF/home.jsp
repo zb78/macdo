@@ -73,32 +73,46 @@
                 }
                 return xmlhttp;
             }
-            
-                function choix() {
-                url = "controler?section=CatalogueCtrl&ref=" + choix.value;
-                // alert( url);
+
+            function choix(selection) {
+                //alert("----------  fonction choix ---------------");
+                url = "controler?section=CatalogueCtrl&ref=" + selection;
+                //alert(url);
                 xmlhttp = getxmlhttp();
-                xmlhttp.onreadystatechange = xmlhttpChange;
+                xmlhttp.onreadystatechange = function () {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        s = xmlhttp.responseText;
+                        // alert( "("+s+")");
+                        //console.log(s);
+                        d = document.getElementById("catalogue");
+                        //console.log(d);
+                        d.innerHTML = s;
+
+                    }
+                }
+
                 xmlhttp.open("GET", url, true);
                 //      xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(null);
             }
 
+
+
             function go(val) {
-            console.log("val : " + val.getAttribute("produit"));
+                console.log("val : " + val.getAttribute("produit"));
                 url = "controler?section=Panier&add=" + val.getAttribute("produit");
-                    console.log(url);
-                // alert( url);
-                        xmlhttp = getxmlhttp();
-                        xmlhttp.onreadystatechange = xmlhttpChange;
-                        xmlhttp.open("GET", url, true);
-                        //      xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                        xmlhttp.send(null);
+                console.log(url);
+                alert(url);
+                xmlhttp = getxmlhttp();
+                xmlhttp.onreadystatechange = xmlhttpChange;
+                xmlhttp.open("GET", url, true);
+                xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xmlhttp.send(null);
             }
 
-                    function xmlhttpChange() {
-                    if (xmlhttp.readyState == 4) { // if xmlhttp shows "loaded"
-            if (xmlhttp.status == 200) { // if "OK"
+            function xmlhttpChange() {
+                if (xmlhttp.readyState == 4) { // if xmlhttp shows "loaded"
+                    if (xmlhttp.status == 200) { // if "OK"
                         s = xmlhttp.responseText;
                         // alert( "("+s+")");
                         console.log(s);

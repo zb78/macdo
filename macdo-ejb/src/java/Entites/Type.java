@@ -95,6 +95,7 @@ public class Type implements Serializable {
     }
 
     public Menu getMenu() {
+        //System.out.println("*-*-*-*-*-*-*-*-*" + menu);
         return menu;
     }
 

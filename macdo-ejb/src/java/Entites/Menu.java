@@ -56,7 +56,7 @@ public class Menu implements Serializable{
     public Menu() {
         optionGratuites = new ArrayList<>();
         ligneDeCommandes = new ArrayList<>();
-        types = new ArrayList();
+        types = new ArrayList<>();
     }
 
     public Menu(String nom, String image) {
@@ -123,15 +123,13 @@ public class Menu implements Serializable{
     }
 
     public Collection<Type> getTypes() {
-        System.out.println("*-*-*-*-*-*-*-*-*" + types);
+        //System.out.println("*-*-*-*-*-*-*-*-*" + types);
         return types;
     }
 
     public void setTypes(Collection<Type> types) {
         this.types = types;
     }
-
-    
 
     public Tva getTva() {
         return tva;

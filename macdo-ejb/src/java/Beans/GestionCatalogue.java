@@ -38,8 +38,12 @@ public class GestionCatalogue implements GestionCatalogueLocal {
     @Override
     public List<Type> selectTypesCatalogue(String nomMenu){ 
         TypedQuery<Type> qr = em.createQuery("select t from Type t where t.menu.nom = :paramName", Type.class);
+        System.out.println("-----------------------");
+        System.out.println(nomMenu);
         qr.setParameter("paramName", nomMenu);
         List<Type> lesTypes = qr.getResultList();
+        System.out.println("-----------------------");
+        System.out.println(lesTypes);
         return lesTypes;
     }
     

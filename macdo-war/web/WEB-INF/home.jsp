@@ -24,7 +24,7 @@
                     <c:import url="${menuGauche}" />
                 </div>
                 <div class="col-sm-8 text-left"> 
-                    <h1>Hello Home !! </h1>
+                    
 
                     <!--<a href="controler?section=CreationDonnees">Creation des données</a>-->
 

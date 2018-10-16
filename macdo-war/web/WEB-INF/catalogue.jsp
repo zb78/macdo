@@ -3,6 +3,7 @@
 <div id="catalogue">
     <div class="container">
         <div class="row d-flex wrap">
+
             <c:if test="${type=='all'}">
                 <c:forEach items="${catalogue}" var="c">
                     <div class="row">
@@ -43,6 +44,7 @@
                             <a href = "controler" onclick="choix('${c.nom}') ; return false" ><div class="card">
                                     <img class="card-img-top mx-auto d-block" style="max-height: 150px; width: auto;" src= "${c.image}" title="${c.nom}">
                                     <div class="card-body">${c.nom}</div>
+
                                 </div>
                                 
                             </a>

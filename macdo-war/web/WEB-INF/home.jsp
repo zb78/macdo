@@ -34,15 +34,16 @@
                     </div>
                 </div>
 
-                <%--<c:url value="controler?section=Panier" var="monpanier"/>
-        <c:import url="${monpanier}"/>--%>
-                <div id="panier">
+
+                <%--<div id="panier">
                     <h1>Panier</h1>
                     <c:forEach var="p" items="${gestionPanier.panier}">
                         ${p.produit.nom} ${p.prix}
                         <br>
                     </c:forEach>
-                </div>  
+</div> --%>
+                <c:url value="controler?section=Panier" var="monpanier"/>
+                <c:import url="${monpanier}"/>
             </div>
 
         </div>
@@ -73,7 +74,7 @@
             }
 
             function go(val) {
-                console.log("val : "+ val.getAttribute("produit"));
+                console.log("val : " + val.getAttribute("produit"));
                 url = "controler?section=Panier&add=" + val.getAttribute("produit");
                 console.log(url);
                 // alert( url);
@@ -94,7 +95,7 @@
                         d = document.getElementById("panier");
                         //console.log(d);
                         d.innerHTML = s;
-                        
+
                     } else {
                         alert("Problem retrieving XML data");
                     }

@@ -5,10 +5,12 @@
  */
 package Beans;
 
+import Entites.Commande;
 import Entites.LigneDeCommande;
 import Entites.Menu;
 import Entites.Produit;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -41,7 +43,7 @@ public class GestionPanier implements GestionPanierLocal {
 
     @Override
     public void addArticle(Produit produit) {
-        System.out.println("addArticle++++++++++++" + produit);
+        System.out.println("addArticle++++++++++++" + produit);  
         LigneDeCommande lig = new LigneDeCommande(produit);
         System.out.println("LigneDeCommande done");
         System.out.println("addArticle>>>" + this.panier);
@@ -98,5 +100,15 @@ public class GestionPanier implements GestionPanierLocal {
             addArticle(produit);
         }
         System.out.println("panier :<<<<: " + panier);
+    }
+    
+    @Override
+    public void persistCommande(){
+        Commande commande = new Commande(new Date());
+        for (LigneDeCommande p : panier) {
+            p.setCommande(commande);
+            em.persist(p);
+        }
+        
     }
 }

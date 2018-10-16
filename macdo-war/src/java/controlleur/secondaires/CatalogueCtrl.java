@@ -24,12 +24,16 @@ public class CatalogueCtrl implements sousController, Serializable {
             leCatalogue = gestionCatalogue.selectTypesCatalogue();
             request.setAttribute("type", "all");
         }else if ("MENU".equals(ref)) {
-            leCatalogue = gestionCatalogue.selectMenusCatalogue(ref);
+            leCatalogue = gestionCatalogue.selectMenusCatalogue();
             request.setAttribute("type", "menu");
+        }else if ("MENU HAPPY MEAL".equals(ref)) {
+            leCatalogue = gestionCatalogue.selectProduitsCatalogue("SANDWICH");
+            request.setAttribute("type", "produitMenu");
         }else{
             leCatalogue = gestionCatalogue.selectProduitsCatalogue(ref);
             request.setAttribute("type", "produit");
         }
+        
            
         request.setAttribute("catalogue", leCatalogue);
         String url= "/WEB-INF/catalogue.jsp";

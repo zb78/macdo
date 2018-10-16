@@ -95,14 +95,35 @@
                 //      xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(null);
             }
+            
+            function menu(nom) {
+                alert("----------  fonction MENU choix ---------------");
+                url = "controler?section=CatalogueCtrl&ref=" + nom;
+                
+                //alert(url);
+                xmlhttp = getxmlhttp();
+                xmlhttp.onreadystatechange = function () {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        s = xmlhttp.responseText;
+                        // alert( "("+s+")");
+                        //console.log(s);
+                        d = document.getElementById("catalogue");
+                        //console.log(d);
+                        d.innerHTML = s;
 
+                    }
+                }
 
-
+                xmlhttp.open("GET", url, true);
+                //      xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xmlhttp.send(null);
+            }
+            
             function go(val) {
                 console.log("val : " + val.getAttribute("produit"));
                 url = "controler?section=Panier&add=" + val.getAttribute("produit");
                 console.log(url);
-                alert(url);
+                //alert(url);
                 xmlhttp = getxmlhttp();
                 xmlhttp.onreadystatechange = xmlhttpChange;
                 xmlhttp.open("GET", url, true);

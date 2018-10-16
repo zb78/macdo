@@ -17,6 +17,7 @@ public class CatalogueCtrl implements sousController, Serializable {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         String ref = request.getParameter("ref");
+        request.setAttribute("ref", ref);
         GestionCatalogueLocal gestionCatalogue = lookupGestionCatalogueLocal();
         List leCatalogue;
         System.out.println(">>>>>>>>>>>>>>>"+ ref);
@@ -24,7 +25,11 @@ public class CatalogueCtrl implements sousController, Serializable {
             leCatalogue = gestionCatalogue.selectMenusCatalogue();
             request.setAttribute("type", "all");
         }else if (ref.contains("MENU")) {
+            System.out.println("-------------------------------------------------");
+            System.out.println("CHUI DANS IF MENU LA !");
             leCatalogue = gestionCatalogue.selectTypesCatalogue(ref);
+            System.out.println("-------------------------------------------------");
+            System.out.println(leCatalogue);
             request.setAttribute("type", "menu");
             
         }else{

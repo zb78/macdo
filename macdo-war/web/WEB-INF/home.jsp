@@ -36,15 +36,16 @@
                     </div>
                 </div>
 
-                <%--<c:url value="controler?section=Panier" var="monpanier"/>
-        <c:import url="${monpanier}"/>--%>
-                <div id="panier">
+
+                <%--<div id="panier">
                     <h1>Panier</h1>
                     <c:forEach var="p" items="${gestionPanier.panier}">
                         ${p.produit.nom} ${p.prix}
                         <br>
                     </c:forEach>
-                </div>  
+</div> --%>
+                <c:url value="controler?section=Panier" var="monpanier"/>
+                <c:import url="${monpanier}"/>
             </div>
 
         </div>

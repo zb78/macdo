@@ -22,18 +22,31 @@ public class CatalogueCtrl implements sousController, Serializable {
         List leCatalogue;
         System.out.println(">>>>>>>>>>>>>>>"+ ref);
         if (ref.isEmpty()) {
+            System.out.println("-------------------------------------------------");
+            System.out.println("selectMenusCatalogue()");
+            System.out.println("-------------------------------------------------");
             leCatalogue = gestionCatalogue.selectMenusCatalogue();
             request.setAttribute("type", "all");
         }else if (ref.contains("MENU")) {
             System.out.println("-------------------------------------------------");
-            System.out.println("CHUI DANS IF MENU LA !");
-            leCatalogue = gestionCatalogue.selectTypesCatalogue(ref);
+            System.out.println("selectTypesCatalogue("+ref+")");
             System.out.println("-------------------------------------------------");
+            leCatalogue = gestionCatalogue.selectTypesCatalogue(ref);
             System.out.println(leCatalogue);
             request.setAttribute("type", "menu");
             
+//        }else if ("menu".equals(request.getAttribute("type"))) {
+//            System.out.println("-------------------------------------------------");
+//            System.out.println("selectProduitsCatalogueByIdType("+Long.valueOf(ref)+")");
+//            System.out.println("-------------------------------------------------");
+//            leCatalogue = gestionCatalogue.selectProduitsCatalogueByIdType(Long.valueOf(ref));
+//            request.setAttribute("type", "produitMenu");
+            
         }else{
-            leCatalogue = gestionCatalogue.selectProduitsCatalogue(ref);
+            System.out.println("-------------------------------------------------");
+            System.out.println("selectProduitsCatalogueByNomType("+ref+")");
+            System.out.println("-------------------------------------------------");
+            leCatalogue = gestionCatalogue.selectProduitsCatalogueByNomType(ref);
             request.setAttribute("type", "produit");
         }
         

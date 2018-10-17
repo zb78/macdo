@@ -96,10 +96,9 @@
                 xmlhttp.send(null);
             }
             
-            function menu(nom) {
-                alert("----------  fonction MENU choix ---------------");
-                url = "controler?section=CatalogueCtrl&ref=" + nom;
-                
+            function menu(id) {
+                //alert("----------  fonction choix ---------------");
+                url = "controler?section=CatalogueCtrl&ref=" + id;
                 //alert(url);
                 xmlhttp = getxmlhttp();
                 xmlhttp.onreadystatechange = function () {

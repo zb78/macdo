@@ -90,7 +90,7 @@ public class Type implements Serializable {
         return produits;
     }
 
-    public void setProduit(Collection<Produit> produits) {
+    public void setProduits(Collection<Produit> produits) {
         this.produits = produits;
     }
 
@@ -106,7 +106,7 @@ public class Type implements Serializable {
     //Autres
     @Override
     public String toString() {
-        return "Entites.Type[ id=" + id + " ]";
+        return nom +"[ id=" + id + " ]";
     }
 
 }

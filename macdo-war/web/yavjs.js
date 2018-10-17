@@ -68,3 +68,28 @@ function xmlhttpChange() {
         }
     }
 }
+
+
+function goPlus(element) {
+    url = "controler?section=Panier&plus=" + element.getAttribute("idIndex");
+    // alert( url);
+    console.log(element.getAttribute("idIndex"));
+
+    xmlhttp = getxmlhttp();
+    xmlhttp.onreadystatechange = xmlhttpChange;
+    xmlhttp.open("GET", url, true);
+//      xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xmlhttp.send(null);
+}
+
+function goMoins(element) {
+    url = "controler?section=Panier&moins=" + element.getAttribute("idIndex");
+    // alert( url);
+    console.log(element.getAttribute("idIndex"));
+
+    xmlhttp = getxmlhttp();
+    xmlhttp.onreadystatechange = xmlhttpChange;
+    xmlhttp.open("GET", url, true);
+//      xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xmlhttp.send(null);
+}

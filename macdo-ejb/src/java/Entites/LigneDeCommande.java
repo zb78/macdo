@@ -107,6 +107,10 @@ public class LigneDeCommande implements Serializable {
         this(produit, 1);
     }
     
+    public LigneDeCommande(Produit produit, Commande commande){
+        this(produit);
+        this.commande = commande;
+    }
     
 
     public Long getId() {
@@ -211,18 +215,19 @@ public class LigneDeCommande implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
+        System.out.println("..............."+this.id);
         hash = 41 * hash + Objects.hashCode(this.id);
-        hash = 41 * hash + Objects.hashCode(this.quantite);
-        hash = 41 * hash + Objects.hashCode(this.prix);
-        hash = 41 * hash + Objects.hashCode(this.tvaTaux);
-        hash = 41 * hash + Objects.hashCode(this.commande);
-        hash = 41 * hash + Objects.hashCode(this.menu);
-        hash = 41 * hash + Objects.hashCode(this.sousLignesDeCommandes);
-        hash = 41 * hash + Objects.hashCode(this.ligneParent);
-        hash = 41 * hash + Objects.hashCode(this.optionGratuites);
-        hash = 41 * hash + Objects.hashCode(this.supplementPayants);
-        hash = 41 * hash + Objects.hashCode(this.elements);
-        hash = 41 * hash + Objects.hashCode(this.produit);
+//        hash = 41 * hash + Objects.hashCode(this.quantite);
+        hash = 41 * hash + Float.hashCode(this.prix);
+        hash = 41 * hash + Float.hashCode(this.tvaTaux);
+//        hash = 41 * hash + Objects.hashCode(this.commande);
+//        hash = 41 * hash + Objects.hashCode(this.menu);
+//        hash = 41 * hash + Objects.hashCode(this.sousLignesDeCommandes);
+//        hash = 41 * hash + Objects.hashCode(this.ligneParent);
+//        hash = 41 * hash + Objects.hashCode(this.optionGratuites);
+//        hash = 41 * hash + Objects.hashCode(this.supplementPayants);
+//        hash = 41 * hash + Objects.hashCode(this.elements);
+//        hash = 41 * hash + Objects.hashCode(this.produit);
         return hash;
     }
 
@@ -238,9 +243,9 @@ public class LigneDeCommande implements Serializable {
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
-        if (!Objects.equals(this.quantite, other.quantite)) {
-            return false;
-        }
+//        if (!Objects.equals(this.quantite, other.quantite)) {
+//            return false;
+//        }
         if (!Objects.equals(this.prix, other.prix)) {
             return false;
         }

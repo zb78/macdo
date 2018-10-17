@@ -35,6 +35,9 @@ public class Panier implements sousController {
         }
 
         String numProduit = request.getParameter("add");
+        String produitPlus = request.getParameter("plus");
+        String produitMoins = request.getParameter("moins");
+        String valider = request.getParameter("valider");
 
         System.out.println("numProduit : " + numProduit);
 
@@ -47,8 +50,24 @@ public class Panier implements sousController {
                 gestionPanier.addArticle(produit);
             }
         }
-        //session.setAttribute("panier", gestionPanier.getPanier());
+        
+        if(produitPlus!=null){
+            Integer idPanier = Integer.valueOf(produitPlus);
+            gestionPanier.ajouterPanier(idPanier);
+        }
 
+        if (produitMoins != null) {
+            Integer idPanier = Integer.valueOf(produitMoins);
+            gestionPanier.retirerPanier(idPanier);
+            
+        }
+
+        if (valider != null) {
+            gestionPanier.persistCommande();
+            return "/WEB-INF/commandevalider.jsp";
+        }
+
+        session.setAttribute("prixTtc", gestionPanier.calculTotal());
         System.out.println("avant le webinf : " + gestionPanier.getPanier());
 
         return "/WEB-INF/panier.jsp";

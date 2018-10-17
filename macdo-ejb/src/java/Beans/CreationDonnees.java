@@ -57,39 +57,39 @@ public class CreationDonnees implements CreationDonneesLocal {
         Type type1 = new Type("Sauce", "./Images/vignette/sauce.png");
         Type type2 = new Type("Sandwich", "./Images/vignette/sandwich.png");
         Type type2BIS = new Type("Sandwich", "./Images/vignette/sandwich.png");
-        Type type2AFF = new Type("Sandwich", "./Images/vignette/sandwich.png");
+        //Type type2AFF = new Type("Sandwich", "./Images/vignette/sandwich.png");
         Type type2MINI = new Type("Sandwich", "./Images/vignette/sandwich.png");
-        Type type2MINIAFF = new Type("Sandwich", "./Images/vignette/sandwich.png");
+//        Type type2MINIAFF = new Type("Sandwich", "./Images/vignette/sandwich.png");
         Type type3MAX = new Type("Accompagnement", "./Images/vignette/friteEtSauce.png" );
-        Type type3MAXAFF = new Type("Accompagnement", "./Images/vignette/friteEtSauce.png" );
+//        Type type3MAXAFF = new Type("Accompagnement", "./Images/vignette/friteEtSauce.png" );
         Type type3 = new Type("Accompagnement", "./Images/vignette/friteEtSauce.png" );
-        Type type3AFF = new Type("Accompagnement", "./Images/vignette/friteEtSauce.png" );
+//        Type type3AFF = new Type("Accompagnement", "./Images/vignette/friteEtSauce.png" );
         Type type3MINI = new Type("Accompagnement", "./Images/vignette/friteEtSauce.png" );
-        Type type3MINIAFF = new Type("Accompagnement", "./Images/vignette/friteEtSauce.png" );
+//        Type type3MINIAFF = new Type("Accompagnement", "./Images/vignette/friteEtSauce.png" );
         Type type4MAX = new Type("Boisson", "./Images/vignette/boisson.png");
-        Type type4MAXAFF = new Type("Boisson", "./Images/vignette/boisson.png");
+//        Type type4MAXAFF = new Type("Boisson", "./Images/vignette/boisson.png");
         Type type4 = new Type("Boisson", "./Images/vignette/boisson.png");
         Type type4BIS = new Type("Boisson", "./Images/vignette/boisson.png");
-        Type type4AFF = new Type("Boisson", "./Images/vignette/boisson.png");
+//        Type type4AFF = new Type("Boisson", "./Images/vignette/boisson.png");
         Type type4MINI = new Type("Boisson", "./Images/vignette/boisson.png");
-        Type type4MINIAFF = new Type("Boisson", "./Images/vignette/boisson.png");
+//        Type type4MINIAFF = new Type("Boisson", "./Images/vignette/boisson.png");
         Type type5 = new Type("Salade", "./Images/vignette/salade.png");
-        Type type5AFF = new Type("Salade", "./Images/vignette/salade.png");
+//        Type type5AFF = new Type("Salade", "./Images/vignette/salade.png");
         Type type6MINI = new Type("Dessert", "./Images/vignette/dessert.png");
-        Type type6MINIAFF = new Type("Dessert", "./Images/vignette/dessert.png");
+//        Type type6MINIAFF = new Type("Dessert", "./Images/vignette/dessert.png");
         Type type7MINI = new Type("Jouet", "./Images/vignette/livre.png");
 
         
-        type2AFF.setMenu(menu1);
-        type2MINIAFF.setMenu(menu1);
-        type3MAXAFF.setMenu(menu2);
-        type3AFF.setMenu(menu2);
-        type3MINIAFF.setMenu(menu2);
-        type4MAXAFF.setMenu(menu3);
-        type4AFF.setMenu(menu3);
-        type4MINIAFF.setMenu(menu3);
-        type5AFF.setMenu(menu4);
-        type6MINIAFF.setMenu(menu5);
+//        type2AFF.setMenu(menu1);
+//        type2MINIAFF.setMenu(menu1);
+//        type3MAXAFF.setMenu(menu2);
+//        type3AFF.setMenu(menu2);
+//        type3MINIAFF.setMenu(menu2);
+//        type4MAXAFF.setMenu(menu3);
+//        type4AFF.setMenu(menu3);
+//        type4MINIAFF.setMenu(menu3);
+//        type5AFF.setMenu(menu4);
+//        type6MINIAFF.setMenu(menu5);
         //System.out.println("*********TYPE*********"+ type2AFF.getMenu());
         
         
@@ -349,15 +349,6 @@ public class CreationDonnees implements CreationDonneesLocal {
         ligneDeCommande45.setProduit(produit12);
         
         
-        
-        
-        em.persist(menu1);
-        em.persist(menu2);
-        em.persist(menu3);
-        em.persist(menu4);
-        em.persist(menu5);
-        
-                
         em.persist(type1);
         em.persist(type2);
         em.persist(type2BIS);
@@ -391,6 +382,11 @@ public class CreationDonnees implements CreationDonneesLocal {
         em.persist(produit12);
         em.persist(produit13);
         
+        em.persist(menu1);
+        em.persist(menu2);
+        em.persist(menu3);
+        em.persist(menu4);
+        em.persist(menu5);
         em.persist(menu11);
         em.persist(menu12);
         em.persist(menu13);

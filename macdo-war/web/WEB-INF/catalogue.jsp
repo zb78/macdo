@@ -73,15 +73,16 @@
     </br>
     <a href="controler?section=HomeCtrl">Retour � l'accueil</a>
     </c:if>
-
+    
     <c:if test="${type=='produitMenu'}">
+        <h1>${ref}</h1>
         <div class="container">
             <div class="row d-flex wrap">
                 <c:forEach items="${catalogue}" var="c">
                     <div class="row">
                         <div class="col-4">
                             <a produit="${c.id}" onclick="go(this);
-                                    return false;" href = "controler"><div class="card">
+                                    return false;" href=""><div class="card">
                                     <img class="card-img-top mx-auto d-block" style="max-height: 150px; width: auto;" src= "${c.image}" title="${c.nom}">
                                     <div class="card-body">${c.nom}
                                     </div>

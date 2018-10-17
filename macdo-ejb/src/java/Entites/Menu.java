@@ -23,34 +23,35 @@ import javax.persistence.OneToMany;
  * @author cdi314
  */
 @Entity
-public class Menu implements Serializable{
+public class Menu implements Serializable {
+
     private static final long serialVersionUID = 1L;
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @Column(nullable = false)
     private String nom;
-    
+
     private Float prix;
-    
+
     @Column(length = 1000)
     private String description;
-    
+
     @Column(length = 1000)
     private String image;
-    
+
     @OneToMany(mappedBy = "menu")
     private Collection<LigneDeCommande> ligneDeCommandes;
-    
-    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Collection<OptionGratuite> optionGratuites;
-    
-    @ManyToMany (mappedBy = "menus", cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+
+    @ManyToMany(mappedBy = "menus", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Collection<Type> types;
-    
-    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Tva tva;
 
     public Menu() {
@@ -67,6 +68,13 @@ public class Menu implements Serializable{
         this.image = image;
     }
 
+    public Menu(String nom, Float prix, String description, String image, Tva tva) {
+        this.nom = nom;
+        this.prix = prix;
+        this.description = description;
+        this.image = image;
+        this.tva = tva;
+    }
 
     public Long getId() {
         return id;
@@ -75,7 +83,7 @@ public class Menu implements Serializable{
     public void setId(Long id) {
         this.id = id;
     }
-    
+
     public String getNom() {
         return nom;
     }
@@ -124,8 +132,6 @@ public class Menu implements Serializable{
         this.types = types;
     }
 
-    
-
     public Tva getTva() {
         return tva;
     }
@@ -134,8 +140,6 @@ public class Menu implements Serializable{
         this.tva = tva;
     }
 
-
-
     public Collection<OptionGratuite> getOptionGratuites() {
         return optionGratuites;
     }
@@ -143,6 +147,5 @@ public class Menu implements Serializable{
     public void setOptionGratuites(Collection<OptionGratuite> optionGratuites) {
         this.optionGratuites = optionGratuites;
     }
-    
-    
+
 }

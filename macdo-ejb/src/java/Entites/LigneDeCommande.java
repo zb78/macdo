@@ -107,6 +107,10 @@ public class LigneDeCommande implements Serializable {
         this(produit, 1);
     }
     
+    public LigneDeCommande(Produit produit, Commande commande){
+        this(produit);
+        this.commande = commande;
+    }
     
 
     public Long getId() {

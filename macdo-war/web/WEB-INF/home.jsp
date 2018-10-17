@@ -148,5 +148,6 @@
                 }
             }
         </script>
+        <script src="./yavjs.js"></script>
     </body>
 </html>

@@ -17,20 +17,36 @@ public class CatalogueCtrl implements sousController, Serializable {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         String ref = request.getParameter("ref");
+        request.setAttribute("ref", ref);
         GestionCatalogueLocal gestionCatalogue = lookupGestionCatalogueLocal();
         List leCatalogue;
         System.out.println(">>>>>>>>>>>>>>>"+ ref);
         if (ref.isEmpty()) {
-            leCatalogue = gestionCatalogue.selectTypesCatalogue();
-            request.setAttribute("type", "all");
-        }else if ("MENU".equals(ref)) {
+            System.out.println("-------------------------------------------------");
+            System.out.println("selectMenusCatalogue()");
+            System.out.println("-------------------------------------------------");
             leCatalogue = gestionCatalogue.selectMenusCatalogue();
+            request.setAttribute("type", "all");
+        }else if (ref.contains("MENU")) {
+            System.out.println("-------------------------------------------------");
+            System.out.println("selectTypesCatalogue("+ref+")");
+            System.out.println("-------------------------------------------------");
+            leCatalogue = gestionCatalogue.selectTypesCatalogue(ref);
+            System.out.println(leCatalogue);
             request.setAttribute("type", "menu");
-        }else if ("MENU HAPPY MEAL".equals(ref)) {
-            leCatalogue = gestionCatalogue.selectProduitsCatalogue("SANDWICH");
-            request.setAttribute("type", "produitMenu");
+            
+//        }else if ("menu".equals(request.getAttribute("type"))) {
+//            System.out.println("-------------------------------------------------");
+//            System.out.println("selectProduitsCatalogueByIdType("+Long.valueOf(ref)+")");
+//            System.out.println("-------------------------------------------------");
+//            leCatalogue = gestionCatalogue.selectProduitsCatalogueByIdType(Long.valueOf(ref));
+//            request.setAttribute("type", "produitMenu");
+            
         }else{
-            leCatalogue = gestionCatalogue.selectProduitsCatalogue(ref);
+            System.out.println("-------------------------------------------------");
+            System.out.println("selectProduitsCatalogueByNomType("+ref+")");
+            System.out.println("-------------------------------------------------");
+            leCatalogue = gestionCatalogue.selectProduitsCatalogueByNomType(ref);
             request.setAttribute("type", "produit");
         }
         

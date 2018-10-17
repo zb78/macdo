@@ -41,5 +41,12 @@ public interface GestionPanierLocal {
     public Produit getProduitById(Long id);
 
     public void persistCommande();
+
+    public String calculTotal();
+
+    public void ajouterPanier(int indexPanier);
+
+    public void retirerPanier(int indexPanier);
+
     
 }

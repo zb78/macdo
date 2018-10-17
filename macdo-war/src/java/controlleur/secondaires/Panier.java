@@ -50,10 +50,16 @@ public class Panier implements sousController {
                 gestionPanier.addArticle(produit);
             }
         }
+        
+        if(produitPlus!=null){
+            Integer idPanier = Integer.valueOf(produitPlus);
+            gestionPanier.ajouterPanier(idPanier);
+        }
 
         if (produitMoins != null) {
-            Long idPanier = Long.valueOf(produitMoins);
-
+            Integer idPanier = Integer.valueOf(produitMoins);
+            gestionPanier.retirerPanier(idPanier);
+            
         }
 
         if (valider != null) {
@@ -61,6 +67,7 @@ public class Panier implements sousController {
             return "/WEB-INF/commandevalider.jsp";
         }
 
+        session.setAttribute("prixTtc", gestionPanier.calculTotal());
         System.out.println("avant le webinf : " + gestionPanier.getPanier());
 
         return "/WEB-INF/panier.jsp";

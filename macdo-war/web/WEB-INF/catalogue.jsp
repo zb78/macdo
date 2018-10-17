@@ -25,7 +25,7 @@
             </div>
         </div>
     </br>
-    <a href="controler?section=start">Prï¿½cï¿½dent</a>
+    <a href="controler?section=start">Précédent</a>
     </c:if>
 
     <c:if test="${type=='produit'}">
@@ -48,7 +48,7 @@
             </div>
         </div>
     </br>
-    <a href="controler?section=HomeCtrl">Retour ï¿½ l'accueil</a>
+    <a href="controler?section=HomeCtrl">Retour à l'accueil</a>
     </c:if>
 
     <c:if test="${type=='menu'}">
@@ -71,7 +71,7 @@
             </div>
         </div>
     </br>
-    <a href="controler?section=HomeCtrl">Retour ï¿½ l'accueil</a>
+    <a href="controler?section=HomeCtrl">Retour à l'accueil</a>
     </c:if>
     
     <c:if test="${type=='produitMenu'}">
@@ -94,7 +94,7 @@
             </div>
         </div>
     </br>
-    <a href="controler?section=HomeCtrl">Retour ï¿½ l'accueil</a>
+    <a href="controler?section=HomeCtrl">Retour à l'accueil</a>
     </c:if>
 </div>
 
